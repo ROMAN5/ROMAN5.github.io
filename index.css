@@ -10,10 +10,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-.bio {
-	padding-left: 1em;
-	padding-right: 1em;
-}
+
 
 .mobile {
 	display: none;
@@ -78,11 +75,58 @@ body {
 	background-color: white;
 }
 
+.bio-contact {
+	display: flex;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.bio {
+	width: 50%;
+
+}
+
+.line {
+	border-left: 1px solid black;
+	margin: 1em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.contact {
+	width: 50%;
+	link-s
+}
+
+.contact .dest {
+	float: right;
+}
+
+.contact a {
+	color: black;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
 @media screen and (max-width: 799px) {
-	body {
-		width: auto;
+	html,body {
+		height: 100%;
 	}
 
+	body {
+		display: flex;
+		flex-direction: column;
+		width: auto;
+		height: 100%;
+
+	}
+
+	.grey-bg {
+		display: flex;
+		background-color: #B1B1B1;
+		flex: 1;
+	}
+	
 	.mobile {
 		display: revert;
 	}
@@ -106,6 +150,27 @@ body {
 	.name {
 		margin: auto;
 		margin-top: 15px;
+	}
+	
+	.bio-contact {
+		display: block;
+		background-color: white;
+		border-bottom-right-radius: 1em;
+		border-bottom-left-radius: 1em;
+	}
+
+	.bio {
+		width: 100%;
+	}
+
+	.contact {
+		width: 100%;
+		padding-bottom: 2em;
+	}
+
+	.line {
+		border-top: 1px solid black;
+		margin: 2em;
 	}
 	
 }

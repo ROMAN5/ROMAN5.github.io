@@ -1,54 +1,450 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<link rel="stylesheet" href="/mirror.css">
+		<title>Mirror Trading Manager</title>
+
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet">
-		<link href="bg.jpg" rel="image">
+		<link rel="icon" type="image/png" sizes="32x32" href="/mirror-favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/mirror-favicon-16x16.png">
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="manifest" href="/site.webmanifest">
+		<script>
+window.onload = function () {
 
-		<meta name="viewport" content="width=device-width">
-		<meta name="theme-color" content="#B1B1B1">
+	if (getCookie("TrialRequested")) {
+		changeTrialboxToSuccess();
+	}
+
+	var myIP = -1;
+
+	{
+		//
+		//Get IP Address
+		//
+
+		const XHR = new XMLHttpRequest();
+
+		XHR.onreadystatechange = function() {
+			if (XHR.readyState === 4) {
+				if (XHR.status === 200) {
+					var response = JSON.parse(XHR.responseText);
+					myIP = response.ip;
+				} else {
+					// Todo: error
+					myIP = -2;
+				}
+			}
+		};
+
+		XHR.open('GET', 'https://api.ipify.org?format=json');
+		XHR.send();
+	}
+
+	const button    = document.querySelector("#submit");
+	const firstname = document.querySelector("#first_name");
+	const surname   = document.querySelector("#surname");
+	const email     = document.querySelector("#email");
+
+	firstname.addEventListener("focusout", checkIfInputIsValid);
+	surname.addEventListener("focusout", checkIfInputIsValid);
+	email.addEventListener("focusout", checkIfInputIsValid);
+
+	button.addEventListener("click", () => {
+		var malformed = false;
+
+		if (firstname.value === "") {
+			checkIfInputIsValid2(firstname);
+
+			malformed = true;
+		}
+
+		if (surname.value === "") {
+			checkIfInputIsValid2(surname);
+
+			malformed = true;
+		}
+
+		if (email.value === "") {
+			checkIfInputIsValid2(email);
+
+			malformed = true;
+		}
+
+		if (!malformed) {
+			var currentDate = new Date();
+
+			sendData({
+				"entry.2082079194_hour": currentDate.getHours(),
+				"entry.2082079194_minute": currentDate.getMinutes(),
+
+				"entry.1890197284_year": currentDate.getFullYear(),
+				"entry.1890197284_month": currentDate.getMonth() + 1, // 0-indexed 🙄
+				"entry.1890197284_day": currentDate.getDate(),
+
+				"entry.523112164": myIP, // Todo: wait for it to load.
+
+				"entry.1672731982": firstname.value,
+				"entry.2023396921": surname.value,
+				"entry.1680865886": email.value
+			});
+		}
+	});
+}
+
+function checkIfInputIsValid(event) {
+	const input = event.target;
+	checkIfInputIsValid2(input);
+}
+
+function checkIfInputIsValid2(input) {
+	var valid = true;
+
+	if (input.value === "") {
+		valid = false;
+	}
+
+	if (valid) {
+		input.classList.remove("invalid");
+	} else {
+		input.classList.add("invalid");
+	}
+}
+
+function sendData(data) {
+	console.log("Sending data");
+
+	const url = "https://docs.google.com/forms/u/2/d/e/1FAIpQLSdjyB641fpYD0O1uhgmNazoDcXfF8e14dXK9asfVjiqqg6SJw/formResponse";
+
+	const urlEncodedDataPairs = [];
+
+	// Turn the data object into an array of URL-encoded key/value pairs.
+	for (const [name, value] of Object.entries(data)) {
+		urlEncodedDataPairs.push(
+			`${encodeURIComponent(name)}=${encodeURIComponent(value)}`
+		);
+	}
+
+	const options = {
+		method: "POST",
+		mode: "no-cors",
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded"
+		},
+
+		// Combine the pairs into a single string and replace all %-encoded spaces to
+		// the '+' character; matches the behavior of browser form submissions.
+		body: urlEncodedDataPairs.join("&").replace(/%20/g, "+")
+	};
+
+	fetch(url, options)
+		.then(response => {
+			changeTrialboxToSuccess();
+			setCookie("TrialRequested", "true");
+		})
+		.catch(error => {
+			console.log(":(((");
+		});
+}
+
+function changeTrialboxToSuccess() {
+	const h1 = document.querySelector(".trialbox h1");
+	h1.textContent = "Trial key requested";
+
+	const p = document.querySelector(".trialbox p");
+	p.textContent = "Success! Our team will email you your key as soon as possible.";
+
+	const form = document.querySelector(".trialbox form");
+	form.style.visibility = "hidden";
+}
+
+function setCookie(name, value) {
+	document.cookie = name + "=" + value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+}
+
+function getCookie(name) {
+	var cookieName = name + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var cookieArray = decodedCookie.split(";");
+
+	for (var i = 0; i < cookieArray.length; i++) {
+		var cookie = cookieArray[i];
+		while (cookie.charAt(0) === " ") {
+			cookie = cookie.substring(1);
+		}
+		if (cookie.indexOf(cookieName) === 0) {
+			return cookie.substring(cookieName.length, cookie.length);
+		}
+	}
+	return null;
+}
+		</script>
+		
+		<style>
+html {
+  scroll-behavior: smooth;
+}
+body {
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+
+	margin: unset;
+}
+
+.thepage {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1em 1em;
+	grid-template-areas:
+		"header   header"
+		"splash   splash"
+		"faq      faq"
+		"download trialbox"
+		". ."; 
+
+	//width: 1200px;
+	margin: auto;
+}
+
+.header {
+	grid-area: header;
+
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 1em;
+
+	align-items: center;
+	justify-content: start;
+
+	padding: 1rem;
+	padding-bottom: unset;
+
+	font-size: 2em;
+}
+
+.header a {
+	color: #000000;
+}
+
+.splash {
+	grid-area: splash;
+
+
+	background-color: #6CCE73;
+	color: #FFFFFF;
+
+	font-size: 1.5em;
+
+	padding: 2em;
+}
+
+.faq {
+	grid-area: faq;
+	padding: 1em;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5em 1em;
+
+	text-align: center;
+
+	border-bottom: 1px solid black;
+}
+
+.download {
+	grid-area: download;
+
+	margin: 2em;
+	padding: 2.5em;
+
+	background-color: #7578CD;
+	color: #FFFFFF;
+
+	border-radius: 0.5em;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.download .button {
+	margin-top: 2em;
+
+	padding: 0.75em;
+	padding-left: 1em;
+	padding-right: 1em;
+
+	border: none;
+	border-radius: 0.5em;
+
+	font-weight: bold;
+	font-size: 1.5em;
+
+	background-color: #FFFFFF;
+	color: #000000;
+
+	text-decoration: none;
+}
+
+.download .button:hover {
+	cursor: pointer;
+
+	outline-width: 0.1em;
+	outline-style: solid;
+	outline-color: black;
+
+	background-color: #d9d9d9;
+}
+
+.trialbox {
+	grid-area: trialbox;
+
+	padding: 1em;
+}
+
+.trialbox form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0.5em 0.5em;
+	grid-template-areas:
+		"name surname"
+		"email email"
+		". submit"; 
+}
+
+.trialbox input {
+	padding: 0.5em;
+	box-sizing: border-box;
+	width: 100%;
+	height: 3em;
+
+	font-size: 1em;
+
+	border-width: 0.125em;
+	border-style: solid;
+	border-color: black;
+	border-radius: 0.5em;
+}
+
+.trialbox .invalid {
+	border-color: red;
+}
+
+.trialbox #first_name {
+	grid-area: name;
+}
+.trialbox #surname {
+	grid-area: surname;
+}
+.trialbox #email {
+	grid-area: email;
+}
+
+.trialbox #submit {
+	grid-area: submit;
+
+	justify-self: right;
+
+	margin-top: 0.5em;
+
+	background-color: #6CCE73;
+	color: black;
+	border: none;
+
+	border-radius: 0.5em;
+
+	font-weight: bold;
+}
+
+.trialbox #submit:hover {
+	background-color: #6ABB84;
+	cursor: pointer;
+
+	outline-width: 0.125em;
+	outline-style: solid;
+	outline-color: black;
+}
+
+		</style>
 	</head>
-
 	<body>
-		<div class="chapeau">
-			<div class="name">
+
+		<div class="thepage">
+			<div class="header">
+				<img style="width: 40px;" src="/mirror_logo.png" class="image">
+				<a href="#faq">FAQ</a>
+				<a href="#trial">Try now</a>
+			</div>
+
+			<div class="splash">
+				<h1>Mirror Trading Manager</h1>
+				<h3>&#x2022; Super-fast copy software</h3>
+				<h3>&#x2022; Unlimited masters and followers accounts</h3>
+				<h3>&#x2022; Symbols mapping</h3>
+				<h3>&#x2022; Copy and modification of TP and SL</h3>
+				<h3>&#x2022; Connection with MT4/MT5 API: MT4-MT4, MT5-MT5, MT4-MT5. MT5-MT4</h3>
+				<h3>&#x2022; Enable/Disable Auto-deactivate account based on date and time.</h3>
+				<h3>&#x2022; No terminal needed for running Mirror.</h3>
+			</div>
+
+			<div id="faq" class="faq">
+				<h1 style="text-align: left;">FAQ</h1>    <br>
+
 				<div>
-					<a class="title">Mirror Trading Manager</a>
+					<h3>Q: Can it copy trades from a MT4 to a MT5 hedge account?</h3>
+					<p>A: Yes</p>
+				</div>
+
+				<div>
+					<h3>Q: Can it copy the target price and stop loss?</h3>
+					<p>A: Yes</p>
+				</div>
+
+				<div>
+					<h3>Q: Can it show trades as placed manually?</h3>
+					<p>A: Yes</p>
+				</div>
+
+				<div>
+					<h3>Q: What are the minimum hardware requirements?</h3>
+					<p>A: 2GB RAM and a dual-core CPU or better</p>
+				</div>
+
+				<div>
+					<h3>Q: What are the OS requirements?</h3>
+					<p>A: Windows Server 2012+ / Windows 10 / Windows 11</p>
+				</div>
+
+				<div>
+					<h3>Q: How much does it cost?</h3>
+					<p>&euro;40/ month or &euro;400/ year (limited to one vps)</p>
+				</div>
+			</div>
+
+			<div class="download">
+				<div>
+					<div style="display: flex; align-items: center;">
+						<img  style="margin-right: 0.5em;" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Windows_logo_-_2021_%28White%29.svg" alt="Windows logo - 2021-present (white)" height="24" width="24">
+						<h1>Windows</h1>
+					</div>
+					<div style="margin-top: 2em;"><a class=button href="https://www.dropbox.com/sh/ofptflx5u7vqxo1/AACts_RX9LQL9aqMcRDTr5Waa?dl=0">Download</a></div>
+				</div>
+				<div style="display: grid; justify-content: right;">
+					<span>Version</span><span style="font-size: 1.5em;">5.0.0</span>
 					<br>
-					<div class="subtitle">by <a href="/">Anton Nel</a></div>
+					<span>Size</span><span style="font-size: 1.5em;">under 95MB</span>
 				</div>
 			</div>
-		</div>
+			<div id="trial" class="trialbox">
+				<h1>Request a trial key</h1>
+				<p>Get unlimited access for 14 days. (Limited to ONE master and THREE followers thereafter)</p>
 
-		<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-
-		<div class="grey-bg">
-			<div class="buy-contact">
-				<div class="buy">
-					<p><stripe-pricing-table pricing-table-id="prctbl_1NGPEPCbNg5GjSP1rmKiTNiI"
-											 publishable-key="pk_live_51NGJ3TCbNg5GjSP1ob62Akt1pQQttFvSIwpClcQpJEQMRelCP5x2Qc8ApnfrglDnF7LsCmPYe8Cu2oCqHOK3t5JI00ys1Kk3Z4">
-					</stripe-pricing-table></p>
-
-				</div>
-				<div class="line"></div>
-				<div class="contact">
-					<h1>Contact</h1>
-					<a href="mailto:anton.nel.be@gmail.com">Email</a><a class="dest" href="mailto:anton.nel.be@gmail.com">anton.nel.be@gmail.com</a><br>
-					<a href="https://t.me/antonnel">Telegram</a><a class="dest" href="https://t.me/antonnel">@antonnel</a><br>
-					<a>Whatsapp</a><a class="dest">+32 499 22 86 84</a><br>
-					<a href="https://linkedin.com/in/anton-nel">LinkedIn</a><a class="dest" href="https://linkedin.com/in/anton-nel">linkedin.com/in/anton-nel</a><br>
-					<a href="https://github.com/roman5">Github</a><a class="dest" href="https://github.com/roman5">github.com/roman5</a><br>
-				</div>
-
+				<form>
+					<input type="text" id="first_name" name="first_name" placeholder="First name(s)">
+					<input type="text" id="surname"    name="surname"    placeholder="Surname">
+					<input type="email" id="email" name="email" placeholder="Email address">
+					<input type="button" id= "submit" value="Send Your Request">
+				</form>
 			</div>
-
-
-			
 		</div>
 	</body>
 </html>

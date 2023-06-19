@@ -7,6 +7,7 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="/mirror-favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/mirror-favicon-16x16.png">
 
+		<meta name="viewport" content="width=device-width">
 		<script>
 window.onload = function () {
 
@@ -208,7 +209,7 @@ body {
 	grid-area: header;
 
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: auto auto auto auto;
 	gap: 1em;
 
 	align-items: center;
@@ -364,6 +365,23 @@ body {
 	outline-color: black;
 }
 
+@media screen and (max-width: 799px) {
+	.thepage {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"header"
+		"splash"
+		"faq"
+		"trialbox"
+		"download"
+		"."; 
+	}
+
+	.faq {
+		grid-template-columns: 1fr;
+	}
+}
+
 		</style>
 	</head>
 	<body>
@@ -373,6 +391,7 @@ body {
 				<img style="width: 40px;" src="/mirror_logo.png" class="image">
 				<a href="#faq">FAQ</a>
 				<a href="#trial">Try now</a>
+				<a href="https://t.me/MirrorTradingManagerNel">Join Telegram channel</a>
 			</div>
 
 			<div class="splash">
@@ -426,7 +445,7 @@ body {
 						<img  style="margin-right: 0.5em;" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Windows_logo_-_2021_%28White%29.svg" alt="Windows logo - 2021-present (white)" height="24" width="24">
 						<h1>Windows</h1>
 					</div>
-					<div style="margin-top: 2em;"><a class=button href="https://www.dropbox.com/sh/ofptflx5u7vqxo1/AACts_RX9LQL9aqMcRDTr5Waa?dl=0">Download</a></div>
+					<div style="margin-top: 2em;"><a class=button href="https://www.dropbox.com/sh/ofptflx5u7vqxo1/AACts_RX9LQL9aqMcRDTr5Waa?dl=0" target="_blank">Download</a></div>
 				</div>
 				<div style="display: grid; justify-content: right;">
 					<span>Version</span><span style="font-size: 1.5em;">5.0.0</span>

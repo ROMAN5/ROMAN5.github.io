@@ -8,462 +8,370 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/mirror-favicon-16x16.png">
 
 		<meta name="viewport" content="width=device-width">
-		<script>
-window.onload = function () {
-
-	if (getCookie("TrialRequested")) {
-		changeTrialboxToSuccess();
-	}
-
-	var myIP = -1;
-
-	{
-		//
-		//Get IP Address
-		//
-
-		const XHR = new XMLHttpRequest();
-
-		XHR.onreadystatechange = function() {
-			if (XHR.readyState === 4) {
-				if (XHR.status === 200) {
-					var response = JSON.parse(XHR.responseText);
-					myIP = response.ip;
-				} else {
-					// Todo: error
-					myIP = -2;
-				}
-			}
-		};
-
-		XHR.open('GET', 'https://api.ipify.org?format=json');
-		XHR.send();
-	}
-
-	const button    = document.querySelector("#submit");
-	const firstname = document.querySelector("#first_name");
-	const surname   = document.querySelector("#surname");
-	const email     = document.querySelector("#email");
-
-	firstname.addEventListener("focusout", checkIfInputIsValid);
-	surname.addEventListener("focusout", checkIfInputIsValid);
-	email.addEventListener("focusout", checkIfInputIsValid);
-
-	button.addEventListener("click", () => {
-		var malformed = false;
-
-		if (firstname.value === "") {
-			checkIfInputIsValid2(firstname);
-
-			malformed = true;
-		}
-
-		if (surname.value === "") {
-			checkIfInputIsValid2(surname);
-
-			malformed = true;
-		}
-
-		if (email.value === "") {
-			checkIfInputIsValid2(email);
-
-			malformed = true;
-		}
-
-		if (!malformed) {
-			var currentDate = new Date();
-
-			sendData({
-				"entry.2082079194_hour": currentDate.getHours(),
-				"entry.2082079194_minute": currentDate.getMinutes(),
-
-				"entry.1890197284_year": currentDate.getFullYear(),
-				"entry.1890197284_month": currentDate.getMonth() + 1, // 0-indexed 🙄
-				"entry.1890197284_day": currentDate.getDate(),
-
-				"entry.523112164": myIP, // Todo: wait for it to load.
-
-				"entry.1672731982": firstname.value,
-				"entry.2023396921": surname.value,
-				"entry.1680865886": email.value
-			});
-		}
-	});
-}
-
-function checkIfInputIsValid(event) {
-	const input = event.target;
-	checkIfInputIsValid2(input);
-}
-
-function checkIfInputIsValid2(input) {
-	var valid = true;
-
-	if (input.value === "") {
-		valid = false;
-	}
-
-	if (valid) {
-		input.classList.remove("invalid");
-	} else {
-		input.classList.add("invalid");
-	}
-}
-
-function sendData(data) {
-	console.log("Sending data");
-
-	const url = "https://docs.google.com/forms/u/2/d/e/1FAIpQLSdjyB641fpYD0O1uhgmNazoDcXfF8e14dXK9asfVjiqqg6SJw/formResponse";
-
-	const urlEncodedDataPairs = [];
-
-	// Turn the data object into an array of URL-encoded key/value pairs.
-	for (const [name, value] of Object.entries(data)) {
-		urlEncodedDataPairs.push(
-			`${encodeURIComponent(name)}=${encodeURIComponent(value)}`
-		);
-	}
-
-	const options = {
-		method: "POST",
-		mode: "no-cors",
-		headers: {
-			"Content-Type": "application/x-www-form-urlencoded"
-		},
-
-		// Combine the pairs into a single string and replace all %-encoded spaces to
-		// the '+' character; matches the behavior of browser form submissions.
-		body: urlEncodedDataPairs.join("&").replace(/%20/g, "+")
-	};
-
-	fetch(url, options)
-		.then(response => {
-			changeTrialboxToSuccess();
-			setCookie("TrialRequested", "true");
-		})
-		.catch(error => {
-			console.log(":(((");
-		});
-}
-
-function changeTrialboxToSuccess() {
-	const h1 = document.querySelector(".trialbox h1");
-	h1.textContent = "Trial key requested";
-
-	const p = document.querySelector(".trialbox p");
-	p.textContent = "Success! Our team will email you your key as soon as possible.";
-
-	const form = document.querySelector(".trialbox form");
-	form.style.visibility = "hidden";
-}
-
-function setCookie(name, value) {
-	document.cookie = name + "=" + value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-}
-
-function getCookie(name) {
-	var cookieName = name + "=";
-	var decodedCookie = decodeURIComponent(document.cookie);
-	var cookieArray = decodedCookie.split(";");
-
-	for (var i = 0; i < cookieArray.length; i++) {
-		var cookie = cookieArray[i];
-		while (cookie.charAt(0) === " ") {
-			cookie = cookie.substring(1);
-		}
-		if (cookie.indexOf(cookieName) === 0) {
-			return cookie.substring(cookieName.length, cookie.length);
-		}
-	}
-	return null;
-}
-		</script>
-		
 		<style>
-html {
-  scroll-behavior: smooth;
-}
-body {
-	font-size: 14px;
-	font-family: 'Open Sans', sans-serif;
 
-	margin: unset;
-}
+			html {
+			  scroll-behavior: smooth;
+			}
 
-.thepage {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1em 1em;
-	grid-template-areas:
-		"header   header"
-		"splash   splash"
-		"faq      faq"
-		"download trialbox"
-		". ."; 
-
-	//width: 1200px;
-	margin: auto;
-}
-
-.header {
-	grid-area: header;
-
-	display: grid;
-	grid-template-columns: auto auto auto auto;
-	gap: 1em;
-
-	align-items: center;
-	justify-content: start;
-
-	padding: 1rem;
-	padding-bottom: unset;
-
-	font-size: 2em;
-}
-
-.header a {
-	color: #000000;
-}
-
-.splash {
-	grid-area: splash;
+			body {
+				font-size: 14px;
+				font-family: 'Open Sans', sans-serif;
+				margin: unset;
+			}
 
 
-	background-color: #6CCE73;
-	color: #FFFFFF;
+			table, td, td {
+				border: 2px solid #FFFFFF;
+				
+			}
 
-	font-size: 1.5em;
+			.mtm {
+				grid-area: mtm;
 
-	padding: 2em;
-}
+				margin: 1em;
+				padding: 0.5em;
 
-.faq {
-	grid-area: faq;
-	padding: 1em;
+				background-color: #181818;
+				color: #FFFFFF;
 
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 0.5em 1em;
+				border-radius: 0.5em;
 
-	text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 
-	border-bottom: 1px solid black;
-}
 
-.download {
-	grid-area: download;
+			.splash {
+				grid-area: splash;
 
-	margin: 2em;
-	padding: 2.5em;
+				margin: 2em;
+				padding: 2.5em;
 
-	background-color: #7578CD;
-	color: #FFFFFF;
+				background-color: #6CCE73;
+				color: #FFFFFF;
 
-	border-radius: 0.5em;
+				border-radius: 0.5em;
 
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
+				display: flex;
+				align-items: left;
+				justify-content: left;
+			}
 
-.download .button {
-	margin-top: 2em;
+			.download {
+				grid-area: download;
 
-	padding: 0.75em;
-	padding-left: 1em;
-	padding-right: 1em;
+				margin: 2em;
+				padding: 2.5em;
 
-	border: none;
-	border-radius: 0.5em;
+				background-color: #7578CD;
+				color: #FFFFFF;
 
-	font-weight: bold;
-	font-size: 1.5em;
+				border-radius: 0.5em;
 
-	background-color: #FFFFFF;
-	color: #000000;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
 
-	text-decoration: none;
-}
+			.download .button {
+				margin-top: 2em;
 
-.download .button:hover {
-	cursor: pointer;
+				padding: 0.75em;
+				padding-left: 1em;
+				padding-right: 1em;
 
-	outline-width: 0.1em;
-	outline-style: solid;
-	outline-color: black;
+				border: none;
+				border-radius: 0.5em;
 
-	background-color: #d9d9d9;
-}
+				font-weight: bold;
+				font-size: 1.5em;
 
-.trialbox {
-	grid-area: trialbox;
+				background-color: #FFFFFF;
+				color: #000000;
 
-	padding: 1em;
-}
+				text-decoration: none;
+			}
 
-.trialbox form {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-	gap: 0.5em 0.5em;
-	grid-template-areas:
-		"name surname"
-		"email email"
-		". submit"; 
-}
+			.download .button:hover {
+				cursor: pointer;
 
-.trialbox input {
-	padding: 0.5em;
-	box-sizing: border-box;
-	width: 100%;
-	height: 3em;
+				outline-width: 0.1em;
+				outline-style: solid;
+				outline-color: black;
 
-	font-size: 1em;
+				background-color: #d9d9d9;
+			}
+					
+			
 
-	border-width: 0.125em;
-	border-style: solid;
-	border-color: black;
-	border-radius: 0.5em;
-}
+			.m_image {
+				grid-area: m_image;
 
-.trialbox .invalid {
-	border-color: red;
-}
+				margin-top: 1em;
+				margin-left: 4em;
+				margin-right: 4em;
+				padding: 1.5em;
 
-.trialbox #first_name {
-	grid-area: name;
-}
-.trialbox #surname {
-	grid-area: surname;
-}
-.trialbox #email {
-	grid-area: email;
-}
+				background-color: #181818;
+				color: #FFFFFF;
 
-.trialbox #submit {
-	grid-area: submit;
+				border-radius: 0.5em;
 
-	justify-self: right;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 
-	margin-top: 0.5em;
 
-	background-color: #6CCE73;
-	color: black;
-	border: none;
+			.m_faq {
+				grid-area: m_faq;
 
-	border-radius: 0.5em;
+				margin: 2em;
+				padding: 2.5em;
 
-	font-weight: bold;
-}
+				background-color: #181818;
+				color: #FFFFFF;
 
-.trialbox #submit:hover {
-	background-color: #6ABB84;
-	cursor: pointer;
+				border-radius: 0.5em;
 
-	outline-width: 0.125em;
-	outline-style: solid;
-	outline-color: black;
-}
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 
-@media screen and (max-width: 799px) {
-	.thepage {
-		grid-template-columns: 1fr;
-		grid-template-areas:
-			"header"
-		"splash"
-		"faq"
-		"trialbox"
-		"download"
-		"."; 
-	}
 
-	.faq {
-		grid-template-columns: 1fr;
-	}
-}
 
+			.faq {
+				grid-area: faq;
+				padding: 0.0em;
+				color: #383838;
+
+				display: grid;
+				align-items: center;
+				justify-content: center;
+			}
 		</style>
 	</head>
 	<body>
 
-		<div class="thepage">
-			<div class="header">
-				<img style="width: 40px;" src="/mirror_logo.png" class="image">
-				<a href="#faq">FAQ</a>
-				<a href="#trial">Try now</a>
-				<a href="https://t.me/MirrorTradingManagerNel" target="_blank">Join Telegram channel</a>
-			</div>
+	<table width="100%" >
+		<tr>
+			
+			<td width="50%" style="text-align:center">
+				<div class="mtm" style="font-family: Cooper;">
+					<div style="display: grid; justify-content: right;">
+						<span><img style="width: 72px;" src="mirror_logo.png" class="image"></span>
 
-			<div class="splash">
-				<h1>Mirror Trading Manager</h1>
-				<h3>&#x2022; Super-fast copy software</h3>
-				<h3>&#x2022; Unlimited masters and followers accounts</h3>
-				<h3>&#x2022; Symbols mapping</h3>
-				<h3>&#x2022; Copy and modification of TP and SL</h3>
-				<h3>&#x2022; Connection with MT4/MT5 API: MT4-MT4, MT5-MT5, MT4-MT5. MT5-MT4</h3>
-				<h3>&#x2022; Enable/Disable Auto-deactivate account based on date and time.</h3>
-				<h3>&#x2022; No terminal needed for running Mirror.</h3>
-			</div>
-
-			<div id="faq" class="faq">
-				<h1 style="text-align: left;">FAQ</h1>    <br>
-
-				<div>
-					<h3>Q: Can it copy trades from a MT4 to a MT5 hedge account?</h3>
-					<p>A: Yes</p>
-				</div>
-
-				<div>
-					<h3>Q: Can it copy the target price and stop loss?</h3>
-					<p>A: Yes</p>
-				</div>
-
-				<div>
-					<h3>Q: Can it show trades as placed manually?</h3>
-					<p>A: Yes</p>
-				</div>
-
-				<div>
-					<h3>Q: What are the minimum hardware requirements?</h3>
-					<p>A: 2GB RAM and a dual-core CPU or better</p>
-				</div>
-
-				<div>
-					<h3>Q: What are the OS requirements?</h3>
-					<p>A: Windows Server 2012+ / Windows 10 / Windows 11</p>
-				</div>
-
-				<div>
-					<h3>Q: How much does it cost?</h3>
-					<p>&euro;40/ month or &euro;400/ year (limited to one vps)</p>
-				</div>
-			</div>
-
-			<div class="download">
-				<div>
-					<div style="display: flex; align-items: center;">
-						<img  style="margin-right: 0.5em;" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Windows_logo_-_2021_%28White%29.svg" alt="Windows logo - 2021-present (white)" height="24" width="24">
-						<h1>Windows</h1>
+						<span><h1>Mirror Trading Manager</h1></span>
 					</div>
-					<div style="margin-top: 2em;"><a class=button href="https://www.dropbox.com/sh/ofptflx5u7vqxo1/AACts_RX9LQL9aqMcRDTr5Waa?dl=0" target="_blank">Download</a></div>
 				</div>
-				<div style="display: grid; justify-content: right;">
-					<span>Version</span><span style="font-size: 1.5em;">5.0.0</span>
-					<br>
-					<span>Size</span><span style="font-size: 1.5em;">under 95MB</span>
-				</div>
-			</div>
-			<div id="trial" class="trialbox">
-				<h1>Request a trial key</h1>
-				<p>Get unlimited access for 14 days. (Limited to ONE master and THREE followers thereafter)</p>
+			</td>
 
-				<form>
-					<input type="text" id="first_name" name="first_name" placeholder="First name(s)">
-					<input type="text" id="surname"    name="surname"    placeholder="Surname">
-					<input type="email" id="email" name="email" placeholder="Email address">
-					<input type="button" id= "submit" value="Send Your Request">
-				</form>
-			</div>
+			<td width="50%" style="text-align:center;">
+				<table width="100%" style="text-align:center;">
+					<tr>
+					    <td width="20%" style="text-align:center">
+							
+						</td>
+						<td width="20%" style="text-align:center">
+						    <span><a href="https://t.me/MirrorTradingManagerNel" target="_blank" style="color:#3F3F3F; font-size: 1.2em;"><img style="width: 44px;" src="telegram.png" class="image"></a></span>
+							<span><h3><a href="https://t.me/MirrorTradingManagerNel" target="_blank" style="color:#3F3F3F; font-size: 1.2em;">Join Telegram channel</a></h3></span>
+						</td>
+						<td width="20%" style="text-align:center">
+							<h3><a href="#faq" style="color:#3F3F3F; font-size: 1.2em;">FAQ</a></h3>
+						</td>
+						<td width="20%" style="text-align:center">
+							<h3><a href="#contact" style="color:#3F3F3F; font-size: 1.2em;">Contact Us</a></h3>
+						</td>
+						<td width="20%" style="text-align:center">
+							
+						</td>
+					<td>
+				</table>
+			</td>
+
+		</tr>
+
+		<tr >
+			<td width="50%" style="text-align:left">
+				<div class="splash">
+					<div style="display: grid; justify-content: left;">
+						<div style="font-family: Cooper;">
+							<font color="#3F3F3F">
+								<h1>Mirror Trading Manager Features</h1>
+							</font>
+						</div>
+						<span style="font-size: 1.2em;">&#x2022; Super-fast copy software</span>
+						<span style="font-size: 1.2em;">&#x2022; Unlimited masters and followers accounts</span>
+						<span style="font-size: 1.2em;">&#x2022; Show trades as placed manually</span>
+						<span style="font-size: 1.2em;">&#x2022; Symbols mapping</span>
+						<span style="font-size: 1.2em;">&#x2022; Copy and modification of TP and SL</span>
+						<span style="font-size: 1.2em;">&#x2022; Partial Close</span>
+						<span style="font-size: 1.2em;">&#x2022; Reverse Trade optional</span>
+						<span style="font-size: 1.2em;">&#x2022; Copy Order Comment optional: None, Same as Master or Custom</span>
+						<span style="font-size: 1.2em;">&#x2022; Equity Protector</span>
+						<span style="font-size: 1.2em;">&#x2022; Connection with MT4/MT5 API: MT4-MT4, MT5-MT5, MT4-MT5, MT5-MT4</span>
+						<span style="font-size: 1.2em;">&#x2022; Enable/Disable Auto-deactivate account based on date and time.</span>
+						<span style="font-size: 1.2em;">&#x2022; No terminal needed for running Mirror.</span>
+					</div>
+				</div>
+			</td>
+			<td width="50%" style="text-align:center">
+				<div class="m_image">
+					<img src="Comparison Editions.png" width="555">
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td width="50%" style="text-align:left">
+				<div class="download">
+					<div>
+						<div style="font-family: Cooper;">
+							<font color="#FFFFFF">
+								<h1>Mirror Trading Manager Software</h1>
+							</font>
+						</div>
+						<div style="display: flex; align-items: center;">
+							<img  style="margin-right: 0.5em;" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Windows_logo_-_2021_%28White%29.svg" alt="Windows logo - 2021-present (white)" height="24" width="24">
+							<h1>Windows</h1>
+						</div>
+						<!-- <div style="margin-top: 2em;"><a class=button href="https://www.dropbox.com/sh/ofptflx5u7vqxo1/AACts_RX9LQL9aqMcRDTr5Waa?dl=0" target="_blank">Download</a></div> -->
+						<div style="margin-top: 2em;">Release soon: 19 July 2023</div>
+					</div>
+					<div style="display: grid; justify-content: right;">
+						<span>Version</span><span style="font-size: 1.5em;">5.1.0</span>
+						<br>
+						<span>Size</span><span style="font-size: 1.0em;">under 99MB</span>
+					</div>
+				</div>
+			</td>
+			<td width="50%" style="text-align:center">
+				<div class="m_image">
+					<img src="Policy.png" width="555">
+				</div>
+				<font color="#383838">
+					<span>*Excl. VAT (Add 21% VAT to EU residents / Anonymous who doesn't want to give address)</span>
+				</font>
+			</td>
+		</tr>
+	</table>
+
+	<table width="100%">
+		<div id="faq" class="m_faq">
+			<font color="#FFFFFF">
+				<h1>FAQ</h1>
+			</font>
 		</div>
+		
+		<tr>
+		 
+			<td width="50%" style="text-align:center">
+				<div class="faq">
+					<div>
+						<h3>Q: Can it copy trades from a MT4 to a MT5 hedge account?</h3>
+						<p>A: Yes</p>
+					</div>
+
+					<div>
+						<h3>Q: Can it copy the target price and stop loss?</h3>
+						<p>A: Yes</p>
+					</div>
+
+					<div>
+						<h3>Q: Can it show trades as placed manually?</h3>
+						<p>A: Yes</p>
+					</div>
+
+					<div>
+						<h3>Q: How to setup so that each account has a different IP address?</h3>
+						<p>A: Use Proxy services (Only for Paid Version*), see PDF guide for more info</p>
+					</div>
+
+					<div>
+						<h3>Q: How fast to complete 200 logins?</h3>
+						<p>A: Under 60 seconds (avg. ping was 175ms). One of the clients reported 30 seconds (his avg. ping was 70ms)</p>
+					</div>
+
+					<div>
+						<h3>Q: How fast to copy 200 trades from master to 8 followers?</h3>
+						<p>A: 50 seconds, see one of the videos in Dropbox</p>
+					</div>
+				</div>
+			</td>
+			<td width="50%" style="text-align:center">
+					<div class="faq">
+
+					<div>
+						<h3>Q: What are the minimum hardware requirements?</h3>
+						<p>A: 2GB RAM and a dual-core CPU or better</p>
+					</div>
+
+					<div>
+						<h3>Q: What are the average hardware requirements?</h3>
+						<p>A: 4GB RAM and a quad-core CPU or better</p>
+					</div>
+
+					<div>
+						<h3>Q: What are the OS minimum requirements?</h3>
+						<p>A: Windows Server 2012+ / Windows 10 / Windows 11</p>
+					</div>
+
+					<div>
+						<h3>Q: Which VPS is best?</h3>
+						<p>A: I cannot recommend, it depends on your broker's location</p>
+					</div>
+
+					<div>
+						<h3>Q: Where to find broker IP address?</h3>
+						<p>A: There is a button: "Auto Detect IP Address", see PDF guide for more info</p>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<table width="100%">
+		<div class="mtm">
+			<font color="#FFFFFF">
+
+			</font>
+		</div>
+		
+		<tr>
+		 
+			<td width="50%" style="text-align:center">
+				<span><a href="https://t.me/antonnel" target="_blank" style="color:#3F3F3F; font-size: 1.2em;"><img style="width: 44px;" src="telegram.png" class="image"></a></span>
+			    <span><h3>@antonnel</h3></span>
+			</td>
+			<td width="50%" style="text-align:center">
+				<span><img style="width: 44px;" src="email.png" class="image"></span>
+			    <span><h3>anton.nel.be@gmail.com</h3></span>
+			</td>
+		</tr>
+
+	</table>
+
+	<table width="100%">
+		<div id="contact" class="mtm">
+			<font color="#FFFFFF">
+
+			</font>
+		</div>
+		
+		<tr>
+		 
+			<td width="50%" style="text-align:center">
+
+			</td>
+			<td width="50%" style="text-align:center">
+
+			</td>
+		</tr>
+
+	</table>
+
 	</body>
 </html>

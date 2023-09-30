@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <item>
 	<version>5.1.4.0</version>
-	<url>https://www.dropbox.com/sh/k5wfatw4fdmjr5u/AAAgoneCCZ3TcifRKSHnlfBsa/Patch/Mirror5.App.exe?dl=0</url>
+	<url>https://www.dropbox.com/sh/k5wfatw4fdmjr5u/AAAgoneCCZ3TcifRKSHnlfBsa/Patch/Mirror5.App.zip?dl=0</url>
 	<changelog>https://github.com/ravibpatel/AutoUpdater.NET/releases</changelog>
 	<mandatory>true</mandatory>
 </item>

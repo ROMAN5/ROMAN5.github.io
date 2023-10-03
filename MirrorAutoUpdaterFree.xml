@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <item>
-	<version>5.1.4.0</version>
-	<url>https://rbsoft.org/downloads/AutoUpdaterTest.zip</url>
-	<changelog>https://github.com/ravibpatel/AutoUpdater.NET/releases</changelog>
-	<mandatory>false</mandatory>
+	<version>5.1.4.1</version>
+	<url>https://www.dropbox.com/scl/fi/4z5bsaqzh3me4w6tslif1/Mirror5.App.zip?rlkey=i5u1zol0ro36h8zw8y8at0q1b&amp;dl=1</url>
+	<mandatory>true</mandatory>
 </item>

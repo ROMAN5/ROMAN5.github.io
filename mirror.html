@@ -1,229 +1,218 @@
 ﻿<!DOCTYPE html>
 <html>
-	<head>
-		<title>Mirror Trading Manager</title>
+<head>
+	<title>Mirror Trading Manager</title>
 
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet">
-		<link rel="icon" type="image/png" sizes="32x32" href="/mirror-favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/mirror-favicon-16x16.png">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" sizes="32x32" href="/mirror-favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/mirror-favicon-16x16.png">
 
-		<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link href="https://fonts.cdnfonts.com/css/cooper-black" rel="stylesheet">
+	<link href="https://fonts.cdnfonts.com/css/cooper-black" rel="stylesheet">
 
-		<script>
+	<script>
 		(function () {
-		  const second = 1000,
+			const second = 1000,
 				minute = second * 60,
 				hour = minute * 60,
 				day = hour * 24;
 
-		  //I'm adding this section so I don't have to keep updating this pen every year :-)
-		  //remove this if you don't need it
-	      let today = new Date(),
-			  dd = String(today.getDate()).padStart(2, "0"),
-			  mm = String(today.getMonth() + 1).padStart(2, "0"),
-			  yyyy = today.getFullYear(),
-			  nextYear = yyyy + 1,
-			  dayMonth = "07/27/",
-			  birthday = dayMonth + yyyy;
-  
-		  today = mm + "/" + dd + "/" + yyyy;
-		  if (today > birthday) {
-			birthday = dayMonth + nextYear;
-		  }
-		  //end
-  
-		  const countDown = new Date(birthday).getTime(),
-			  x = setInterval(function() {    
+			//I'm adding this section so I don't have to keep updating this pen every year :-)
+			//remove this if you don't need it
+			let today = new Date(),
+				dd = String(today.getDate()).padStart(2, "0"),
+				mm = String(today.getMonth() + 1).padStart(2, "0"),
+				yyyy = today.getFullYear(),
+				nextYear = yyyy + 1,
+				dayMonth = "07/27/",
+				birthday = dayMonth + yyyy;
 
-				const now = new Date().getTime(),
-					  distance = countDown - now;
+			today = mm + "/" + dd + "/" + yyyy;
+			if (today > birthday) {
+				birthday = dayMonth + nextYear;
+			}
+			//end
 
-				document.getElementById("days").innerText = Math.floor(distance / (day)),
-				document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-				document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-				document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+			const countDown = new Date(birthday).getTime(),
+				x = setInterval(function () {
 
-				//do something later when date is reached
-				if (distance < 0) {
-				  clearInterval(x);
-				}
-				//seconds
-			  }, 0)
-		  }());
-		</script>
+					const now = new Date().getTime(),
+						distance = countDown - now;
 
-		<style>
+					document.getElementById("days").innerText = Math.floor(distance / (day)),
+						document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+						document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+						document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
 
-			html {
-			  scroll-behavior: smooth;
+					//do something later when date is reached
+					if (distance < 0) {
+						clearInterval(x);
+					}
+					//seconds
+				}, 0)
+		}());
+	</script>
+
+	<style>
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			font-size: 14px;
+			font-family: 'Open Sans', sans-serif;
+			margin: unset;
+		}
+
+
+		table, td, td {
+			border: 2px solid #FFFFFF;
+		}
+
+        .mtm {
+            grid-area: mtm;
+			margin: 1em;
+			padding: 0.5em;
+			background-color: #181818;
+			color: #FFFFFF;
+			border-radius: 0.5em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+        .mtm5 {
+            grid-area: mtm5;
+            margin: 1em;
+            padding: 0.5em;
+            background-color: #181818;
+            color: #FFFFFF;
+            border-radius: 0.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            th, td, table
+			{
+				border-style: none;
+				border-color: #383838;
+			}
+        }
+
+
+		.splash {
+			grid-area: splash;
+			margin: 2em;
+			padding: 2.5em;
+			background-color: #5CBE63;
+			color: #FFFFFF;
+			border-radius: 0.5em;
+			display: flex;
+			align-items: left;
+			justify-content: left;
+		}
+
+		.download {
+			grid-area: download;
+			margin: 2em;
+			padding: 2.5em;
+			background-color: #7578CD;
+			color: #FFFFFF;
+			border-radius: 0.5em;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.download .button {
+			margin-top: 2em;
+			padding: 0.75em;
+			padding-left: 1em;
+			padding-right: 1em;
+			border: none;
+			border-radius: 0.5em;
+			font-weight: bold;
+			font-size: 1.5em;
+			background-color: #FFFFFF;
+			color: #000000;
+			text-decoration: none;
+		}
+
+		.download .button:hover {
+			cursor: pointer;
+			outline-width: 0.1em;
+			outline-style: solid;
+			outline-color: black;
+			background-color: #d9d9d9;
+		}
+
+
+
+		.m_image {
+			grid-area: m_image;
+			margin-top: 1em;
+			margin-left: 4em;
+			margin-right: 4em;
+			padding: 1.5em;
+			background-color: #181818;
+			color: #FFFFFF;
+			border-radius: 0.5em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.m_table {
+			grid-area: m_table;
+			table
+			{
+				border-color: #383838;
 			}
 
-			body {
-				font-size: 14px;
-				font-family: 'Open Sans', sans-serif;
-				margin: unset;
+			margin-top: 1em;
+			margin-left: 4em;
+			margin-right: 4em;
+			padding: 1.5em;
+
+			background-color: #181818;
+			color: #CFCFCF;
+			th, td {
+				border-style: none;
 			}
 
+			border-color: #FF0000;
+			border: none;
+			border-radius: 0.5em;
 
-			table, td, td {
-				border: 2px solid #FFFFFF;
-				
-			}
-
-			.mtm {
-				grid-area: mtm;
-
-				margin: 1em;
-				padding: 0.5em;
-
-				background-color: #181818;
-				color: #FFFFFF;
-
-				border-radius: 0.5em;
-
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
 
-			.splash {
-				grid-area: splash;
-
-				margin: 2em;
-				padding: 2.5em;
-
-				background-color: #5CBE63;
-				color: #FFFFFF;
-
-				border-radius: 0.5em;
-
-				display: flex;
-				align-items: left;
-				justify-content: left;
-			}
-
-			.download {
-				grid-area: download;
-
-				margin: 2em;
-				padding: 2.5em;
-
-				background-color: #7578CD;
-				color: #FFFFFF;
-
-				border-radius: 0.5em;
-
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-
-			.download .button {
-				margin-top: 2em;
-
-				padding: 0.75em;
-				padding-left: 1em;
-				padding-right: 1em;
-
-				border: none;
-				border-radius: 0.5em;
-
-				font-weight: bold;
-				font-size: 1.5em;
-
-				background-color: #FFFFFF;
-				color: #000000;
-
-				text-decoration: none;
-			}
-
-			.download .button:hover {
-				cursor: pointer;
-
-				outline-width: 0.1em;
-				outline-style: solid;
-				outline-color: black;
-
-				background-color: #d9d9d9;
-			}
-					
-			
-
-			.m_image {
-				grid-area: m_image;
-
-				margin-top: 1em;
-				margin-left: 4em;
-				margin-right: 4em;
-				padding: 1.5em;
-
-				background-color: #181818;
-				color: #FFFFFF;
-
-				border-radius: 0.5em;
-
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-
-			.m_table {
-				grid-area: m_table;
-
-				table {
-					border-color: #383838;
-				}
-
-				margin-top: 1em;
-				margin-left: 4em;
-				margin-right: 4em;
-				padding: 1.5em;
-
-				background-color: #181818;
-				color: #CFCFCF;
-				th, td {
-				  border-style: none;
-				}
-				border-color: #FF0000;
-				border: none;
-				border-radius: 0.5em;
-
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-
-
-			.m_faq {
-				grid-area: m_faq;
-
-				margin: 2em;
-				padding: 2.5em;
-
-				background-color: #181818;
-				color: #FFFFFF;
-
-				border-radius: 0.5em;
-
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
+		.m_faq {
+			grid-area: m_faq;
+			margin: 2em;
+			padding: 2.5em;
+			background-color: #181818;
+			color: #FFFFFF;
+			border-radius: 0.5em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
 
 
-			.faq {
-				grid-area: faq;
-				padding: 0.0em;
-				color: #383838;
-
-				display: grid;
-				align-items: center;
-				justify-content: center;
-			}
+		.faq {
+			grid-area: faq;
+			padding: 0.0em;
+			color: #383838;
+			display: grid;
+			align-items: center;
+			justify-content: center;
+		}
 
 
 
@@ -235,23 +224,23 @@
 
 
 
-			.container {
-			  color: #FFFFFF;
-			  margin: 0 auto;
-			  text-align: center;
-			}
+		.container {
+			color: #FFFFFF;
+			margin: 0 auto;
+			text-align: center;
+		}
 
-			li {
-			  display: inline-block;
-			  font-size: 0.75em;
-			  list-style-type: none;
-			  padding: 0.5em;
-			  text-transform: uppercase;
-			}
+		li {
+			display: inline-block;
+			font-size: 0.75em;
+			list-style-type: none;
+			padding: 0.5em;
+			text-transform: uppercase;
+		}
 
 			li span {
-			  display: block;
-			  font-size: 1.3rem;
+				display: block;
+				font-size: 1.3rem;
 			}
 
 
@@ -259,508 +248,816 @@
 
 
 
-			.imageMarquee3 {
-				height: 40px;
-				background-image: url(mtm.png);
-				background-repeat: repeat, repeat;
-				background-size: auto 100%;
-				animation: imageMovement2 70s linear infinite;
-				animation-duration: 70s;
-				animation-timing-function: linear;
-				animation-delay: 0s;
-				animation-iteration-count: infinite;
-				animation-direction: normal;
-				animation-fill-mode: none;
-				animation-play-state: running;
-				animation-name: imageMovement2;
-				animation-timeline: auto;
-				animation-range-start: normal;
-				animation-range-end: normal;
-			}
-			@keyframes imageMovement2 {
-				100% {
-					background-position-x: -3199px; /* width of the image */
-				}        
-			}
+		.imageMarquee3 {
+			height: 40px;
+			background-image: url(mtm.png);
+			background-repeat: repeat, repeat;
+			background-size: auto 100%;
+			animation: imageMovement2 70s linear infinite;
+			animation-duration: 70s;
+			animation-timing-function: linear;
+			animation-delay: 0s;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+			animation-fill-mode: none;
+			animation-play-state: running;
+			animation-name: imageMovement2;
+			animation-timeline: auto;
+			animation-range-start: normal;
+			animation-range-end: normal;
+		}
 
-			.hawkeye_container {
-			  position: relative;
-			  text-align: center;
-			  color: white;
+		@keyframes imageMovement2 {
+			100% {
+				background-position-x: -3199px; /* width of the image */
 			}
-			.hawkeye_centered {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-		</style>
+		}
+
+		.hawkeye_container {
+			position: relative;
+			text-align: center;
+			color: white;
+		}
+
+		.hawkeye_centered {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 10%);
+        }
+
+	</style>
+
 	</head>
-	<body>
-	
+<body>
+
 	<!--
 	<div class="hawkeye_container">
-		<div class="imageMarquee3"></div>    
+		<div class="imageMarquee3"></div>
 		<div class="hawkeye_centered">Centered</div>
 	</div>
 	-->
 
-	<table width="100%">
+
+
+
+
+
+	
+
+	<table class="mtm5" width="100%" style="text-align:center;">
 		<tr>
-			
-			<td width="50%" style="text-align:center">
-				<div class="mtm" style="font-family: 'Cooper Black';">
-					<div style="display: grid; justify-content: right;">
-						<span><img style="width: 72px;" src="mirror_logo.png" class="image"></span>
+			<td style="text-align:center">
+				<div style="font-family: 'Cooper Black';">
 
-						<span><h1>Mirror Trading Manager</h1></span>
-					</div>
+					<!--<span><img style="width: 72px;" src="mirror_logo.png" class="image"></span>-->
+
+					<span mar><h1>Mirror Trading Manager</h1></span>
+
 				</div>
 			</td>
 
-			<td width="50%" style="text-align:center;">
-				<table width="100%" style="text-align:center;">
-					<tr>
-					    <td width="20%" style="text-align:center">
-							
-						</td>
-						<td width="20%" style="text-align:center">
-						    <span><a href="https://t.me/MirrorTradingManagerNel" target="_blank" style="color:#3F3F3F; font-size: 1.2em;"><img style="width: 44px;" src="telegram.png" class="image"></a></span>
-							<span><h3><a href="https://t.me/MirrorTradingManagerNel" target="_blank" style="color:#3F3F3F; font-size: 1.2em;">Join Telegram channel</a></h3></span>
-						</td>
-						<td width="20%" style="text-align:center">
-							<h3><a href="#faq" style="color:#3F3F3F; font-size: 1.2em;">FAQ</a></h3>
-						</td>
-						<td width="20%" style="text-align:center">
-							<h3><a href="#contact" style="color:#3F3F3F; font-size: 1.2em;">Contact Us</a></h3>
-						</td>
-						<td width="20%" style="text-align:center">
-							
-						</td>
-					<td>
-				</table>
+		<tr>
+		<tr>
+			<td>
+				Super-fast copy software
 			</td>
-
+		</tr>
+		<tr>
+			<td>
+				No terminal needed for running Mirror
+			</td>
+		</tr>
+		<tr>
+			<td>
+				MT4 to MT4, MT5 to MT5, MT4 to MT5 and MT5 to MT4
+			</td>
 		</tr>
 	</table>
 
-	<table width="100%">
-		<tr >
-			<td width="50%" style="text-align:left">
-				<div class="splash">
-					<div style="display: grid; justify-content: left;">
-						<div style="font-family: 'Cooper Black';">
-							<font color="#3F3F3F">
-								<h1>Mirror Trading Manager Features</h1>
-							</font>
-						</div>
-						<span style="font-size: 1.2em;">&#x2022; Super-fast copy software</span>
-						<span style="font-size: 1.2em;">&#x2022; Unlimited masters and followers accounts</span>
-						<span style="font-size: 1.2em;">&#x2022; Show trades as placed manually</span>
-						<span style="font-size: 1.2em;">&#x2022; Symbols mapping</span>
-						<span style="font-size: 1.2em;">&#x2022; Copy and modification of TP and SL</span>
-						<span style="font-size: 1.2em;">&#x2022; Copy Pending Orders</span>
-						<span style="font-size: 1.2em;">&#x2022; Export History Trades to File</span>
-						<span style="font-size: 1.2em;">&#x2022; Partial Close</span>
-						<span style="font-size: 1.2em;">&#x2022; Reverse Trade optional</span>
-						<span style="font-size: 1.2em;">&#x2022; Copy Order Comment optional: None, Same as Master or Custom</span>
-						<span style="font-size: 1.2em;">&#x2022; Equity Protector</span>
-						<span style="font-size: 1.2em;">&#x2022; Enable/Disable Auto-deactivate account based on date and time.</span>
-						<span style="font-size: 1.2em;">&#x2022; Connection with MT4/MT5 API: MT4-MT4, MT5-MT5, MT4-MT5, MT5-MT4</span>
-						<span style="font-size: 1.2em;">&#x2022; Proxy Server for MT4/MT5 Connections</span>
-						<span style="font-size: 1.2em;">&#x2022; No terminal needed for running Mirror.</span>
-					</div>
+	<table width="100%" style="text-align:center;">
+		<tr>
+			<td style="text-align:center">
+				<div>
+					<a href="#download_mtm" style="color:#3F3F3F; font-size: 1.2em;">Download</a> |
+
+					<a href="#faq" style="color:#3F3F3F; font-size: 1.2em;">FAQ</a> |
+
+					<a href="#contact" style="color:#3F3F3F; font-size: 1.2em;">Contact Us</a> |
+
+					<a href="https://t.me/MirrorTradingManagerNel" target="_blank" style="color:#3F3F3F; font-size: 1.2em;">Join Telegram channel</a>
 				</div>
+			</td>
+		<tr>
+	</table>
 
-				<div class="download">
-					<div>
 
-						<div style="font-family: 'Cooper Black';">
-							<font color="#FFFFFF">
-								<h1>Mirror Trading Manager Software</h1>
-							</font>
-						</div>
 
-						<div style="display: flex; align-items: center;">
-							<img style="margin-right: 0.5em;" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Windows_logo_-_2021_%28White%29.svg" alt="Windows logo - 2021-present (white)" height="24" width="24">
-							<h1>Windows</h1>
-						</div>
-						<!-- <div style="margin-top: 2em;"><a class=button href="https://www.dropbox.com/sh/ofptflx5u7vqxo1/AACts_RX9LQL9aqMcRDTr5Waa?dl=0" target="_blank">Download v5.0.9</a></div> -->
-						<div style="margin-top: 1.5em;"><a class=button href="https://www.dropbox.com/sh/ntki9i3f03xdhyy/AADy1EAo3nf8k6RcHQ9ZDpP6a?dl=0" target="_blank">Download Lite Version</a></div>
-						<div style="margin-top: 3.5em;"><a class=button href="https://www.dropbox.com/sh/k5wfatw4fdmjr5u/AAAbub-jvxO_G4ljZUZgPLg5a?dl=0" target="_blank">Download Full Version</a></div>
+	<div class="m_table">
+		<table width="70%" style="text-align:center">
+			<tr style="font-weight: bold; font-size: 0.9em; text-align:left; background-color: #3F3F3F">
+				<td>
+					<font color="#FBFBFB">
+						<span style="font-size: 1.5em;">Mirror Trading Manager - Features and Comparison</span>
+					</font>
 
-						<!--
-	<div style="margin-top: 2em;">Download Button for v5.7.0 -> Release soon: Wednesday, 26 July 2023</div>
-	<div class="container">
-	  <div id="countdown" >
-		<ul>
-		  <li><span id="days"></span>days</li>
-		  <li><span id="hours"></span>Hours</li>
-		  <li><span id="minutes"></span>Minutes</li>
-		  <li><span id="seconds"></span>Seconds</li>
-		</ul>
-	  </div>
+				</td>
+			</tr>
+			<tr style="font-weight: bold; font-size: 0.9em; text-align:left; background-color: #3F3F3F">
+				<td>
+					Description
+				</td>
+				<td>
+					Lite Version (Free)
+				</td>
+				<td>
+					Std Version (Full)
+				</td>
+				<td>
+					Pro Version
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					Master accounts
+				</td>
+				<td>
+					1
+				</td>
+				<td>
+					&#8734 Unlimited
+				</td>
+				<td>
+					&#8734 Unlimited
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left; background-color: #272526">
+				<td>
+					Follower accounts
+				</td>
+				<td>
+					Up to 10 max.
+				</td>
+				<td>
+					&#8734 Unlimited
+				</td>
+				<td>
+					&#8734 Unlimited
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					Broker IP Address per account
+				</td>
+				<td>
+					1
+				</td>
+				<td>
+					Multiple selections
+				</td>
+				<td>
+					Multiple selections
+				</td>
+			</tr>
+
+
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					Show trades as placed manually
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left">
+				<td>
+					Copy and modification of TP and SL
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					Partial Close
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left">
+				<td>
+					Reverse Trade optional
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					Copy Order Comment optional: None, Same as Master or Custom
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left">
+				<td>
+					Target DD/TP - Close All Trades and Equity Protector
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					Enable/Disable Auto-deactivate account based on date and time
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+
+			<tr style="font-size: 0.8em; text-align: left">
+				<td>
+					Advertising Free
+				</td>
+				<td>
+					<font color="#FF0000">
+						No
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					Pending Orders
+				</td>
+				<td>
+					<font color="#FF0000">
+						No
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left">
+				<td>
+					Export History Trades to CSV File
+				</td>
+				<td>
+					<font color="#FF0000">
+						No
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					Proxy for MT4/MT5 Connections and Support
+				</td>
+				<td>
+					<font color="#FF0000">
+						No
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes <a href="https://www.dropbox.com/scl/fi/0n31bngwurcm1hijvfyw2/03-Mirror-Trading-Manager-Proxy-Guide.pdf?rlkey=rugszngyplqyhbp7hisdhn8ln&dl=1" style="color: #FAFFFA">(download PDF)</a>
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes <a href="https://www.dropbox.com/scl/fi/0n31bngwurcm1hijvfyw2/03-Mirror-Trading-Manager-Proxy-Guide.pdf?rlkey=rugszngyplqyhbp7hisdhn8ln&dl=1" style="color: #FAFFFA">(download PDF)</a>
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left">
+				<td>
+					Trading Filters/Conditions
+				</td>
+				<td>
+					<font color="#FF0000">
+						No
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+						Yes
+					</font>
+				</td>
+			</tr>
+
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					Master Speed Loop
+				</td>
+				<td>
+					Per Second
+				</td>
+				<td>
+					<font color="#00FF00">
+						10x faster than Lite
+					</font>
+				</td>
+				<td>
+					<font color="#1E90FF">
+						100x faster than Lite
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left">
+				<td>
+					Application instance per machine
+				</td>
+				<td>
+					1
+				</td>
+				<td>
+					<font color="#00FF00">
+						Up to 5 max.
+					</font>
+				</td>
+				<td>
+					<font color="#1E90FF">
+						Up to 10 max.
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					<br>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+
+			<tr style="font-size: 0.8em; text-align: left">
+				<td>
+					REST API for Developers
+				</td>
+				<td>
+					<font color="#FF0000">
+						No
+					</font>
+				</td>
+				<td>
+					<font color="#FF0000">
+						No
+					</font>
+				</td>
+				<td>
+					<font color="#1E90FF">
+						Coming soon
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+
+					<span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFFFFF" class="bi bi-robot" viewBox="0 0 16 16">
+							<path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135" />
+							<path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5" />
+						</svg>
+					</span>
+					<span>  PlugIn: HFT </span>
+				</td>
+				<td>
+					<font color="#FF0000">
+						No
+					</font>
+				</td>
+				<td>
+					<font color="#FF0000">
+						No
+					</font>
+				</td>
+				<td>
+					<font color="#1E90FF">
+						Coming soon
+					</font>
+					
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					<br>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					General Support
+				</td>
+				<td>
+					&#8364;80 per hour upfront
+				</td>
+				<td>
+					<font color="#00FF00">
+						Free
+					</font>
+				</td>
+				<td>
+					<font color="#1E90FF">
+						Free
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					Training
+				</td>
+				<td>
+
+					&#8364;150 per hour upfront
+				</td>
+				<td>
+					Free (max. 1 hour)
+				</td>
+				<td>
+					<font color="#1E90FF">
+						Free
+					</font>
+				</td>
+			</tr>
+
+			<tr id="download_mtm" style="font-size: 0.8em; text-align:left">
+				<td>
+					<br>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					<img style="margin-right: 0.5em;" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Windows_logo_-_2021_%28White%29.svg" alt="Windows logo - 2021-present (white)" height="16" width="16">
+					Windows 64 bit
+				</td>
+
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left">
+				<td>
+					Download Mirror Trading Manager Software
+				</td>
+				<td>
+					<a href="https://www.dropbox.com/sh/ntki9i3f03xdhyy/AADy1EAo3nf8k6RcHQ9ZDpP6a?dl=0" style="color: #FAFFFA">Lite Version 5.1.8 for free</a>
+				</td>
+				<td>
+					<a href="https://www.dropbox.com/sh/k5wfatw4fdmjr5u/AAAbub-jvxO_G4ljZUZgPLg5a?dl=0" style="color: #FAFFFA">Full Version 5.1.8</a>
+				</td>
+				<td>
+					<font color="#1E90FF">
+						Coming soon
+					</font>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align: left; background-color: #272526">
+				<td>
+					General Guide <a href="https://www.dropbox.com/scl/fi/rimuejblhcnueznchw32d/02-Mirror-Trading-Manager-General-Guide.pdf?rlkey=tamw9eytb9hihc9pyuog3242e&dl=1" style="color: #FAFFFA">(Click here to download PDF file)</a>
+				</td>
+				<td>
+					<font color="#00FF00">
+
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+
+					</font>
+				</td>
+				<td>
+					<font color="#00FF00">
+
+					</font>
+				</td>
+			</tr>
+		</table>
 	</div>
-	-->
 
-						<div style="margin-top: 4em; font-size: 0.8em;"><a class=button href="https://www.dropbox.com/sh/ofptflx5u7vqxo1/AACts_RX9LQL9aqMcRDTr5Waa?dl=0" target="_blank">Other Software</a></div>
+	<div class="m_table">
+		<table width="70%" style="text-align:center">
+			<tr style="font-weight: bold; font-size: 0.9em; text-align:left; background-color: #3F3F3F">
+				<td>
+					Std Version (Full) Prices from 1 Feb 2024 onwards*
+				</td>
+				<td>
+					Monthly
+				</td>
+				<td>
+					Yearly
+				</td>
+				<td>
+					Life-time
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					Limited 1 machine (can be VPS or your computer)
+				</td>
+				<td>
+					&#8364;59
+				</td>
+				<td>
+					&#8364;599 (pro-data: &#8364;49/machine/pm)
+				</td>
+				<td>
+					&#8364;1799 (pro-data for 5 yrs: &#8364;29/machine/pm)
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left; background-color: #272526">
+				<td>
+					Limited up to 2 machines
+				</td>
+				<td>
+					&#8364;79 (pro-data: &#8364;39/machine)
+				</td>
+				<td>
+					&#8364;799 (pro-data: &#8364;33/machine/pm)
+				</td>
+				<td>
+					&#8364;2399 (pro-data for 5 yrs: &#8364;19/machine/pm)
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					Limited up to 5 machines
+				</td>
+				<td>
+					&#8364;149 (pro-data: &#8364;29/machine)
+				</td>
+				<td>
+					&#8364;1499 (pro-data: &#8364;24/machine/pm)
+				</td>
+				<td>
+					&#8364;4499 (pro-data for 5 yrs: &#8364;14/machine/pm)
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left; background-color: #272526">
+				<td>
+					Limited up to 10 machines
+				</td>
+				<td>
+					&#8364;199 (pro-data: &#8364;19/machine)
+				</td>
+				<td>
+					&#8364;1999 (pro-data: &#8364;16/machine/pm)
+				</td>
+				<td>
+					&#8364;5999 (pro-data for 5 yrs: &#8364;9/machine/pm)
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					<br>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					*Payment methods: PayPal / Skrill / USDT (trc20)
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left;" ">
+				<td>
+					*Non-refundable
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left;" ">
+				<td>
+					*Existing customers can pay same old price as 2023 in 2024
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+		</table>
 
-					</div>
-					<div style="display: grid; justify-content: right;">
-						<span>Version</span><span style="font-size: 1.5em;">5.1.8</span>
-						<br>
-						<span>Size</span><span style="font-size: 1.0em;">94MB</span>
-					</div>
-				</div>
-			</td>
-			<td width="50%" style="text-align:center">
-				<!--
-				<div class="m_image">
-					<img src="policy20231204.png" width="550">
-				</div>
-				-->
-				<div class="m_table">
-					<table width="80%" style="text-align:center">
-						<tr style="font-weight: bold; font-size: 0.9em; text-align:left; background-color: #3F3F3F">
-							<td>
-								Description
-							</td>
-							<td>
-								Lite Version
-							</td>
-							<td>
-								Full Version
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Masters
-							</td>
-							<td>
-								1
-							</td>
-							<td>
-								&#8734 Unlimited
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Followers
-							</td>
-							<td>
-								Up to 10 max.
-							</td>
-							<td>
-								&#8734 Unlimited
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Advertising Free
-							</td>
-							<td>
-								<font color="#FF0000">
-								No
-								</font>
-							</td>
-							<td>
-								<font color="#00FF00">
-								Yes
-								</font>
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Pending Orders
-							</td>
-							<td>
-								<font color="#FF0000">
-								No
-								</font>
-							</td>
-							<td>
-								<font color="#00FF00">
-								Yes
-								</font>
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Export History Trades to CSV File
-							</td>
-							<td>
-								<font color="#FF0000">
-								No
-								</font>
-							</td>
-							<td>
-								<font color="#00FF00">
-								Yes
-								</font>
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Proxy for MT4/MT5 Support
-							</td>
-							<td>
-								<font color="#FF0000">
-								No
-								</font>
-							</td>
-							<td>
-								<font color="#00FF00">
-								Yes
-								</font>
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Trading Filters/Conditions
-							</td>
-							<td>
-								<font color="#FF0000">
-								No
-								</font>
-							</td>
-							<td>
-								<font color="#00FF00">
-								Yes
-								</font>
-							</td>
-						</tr>
+	</div>
 
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Master Speed Loop
-							</td>
-							<td>
-								Per Second
-							</td>
-							<td>
-								10 times faster than Lite Version
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Application instance per machine
-							</td>
-							<td>
-								1
-							</td>
-							<td>
-								Up to 5 max.
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								<br>
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Roadmaps
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								..REST API for Developers (only for Yearly/Lifetime)
-							</td>
-							<td>
-								-
-							</td>
-							<td>
-								Under construction
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								<br>
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								General Support
-							</td>
-							<td>
-								&#8364;100 per hour upfront
-							</td>
-							<td>
-								Free
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Training
-							</td>
-							<td>
-								&#8364;100 per hour upfront
-							</td>
-							<td>
-								Free but max. 1 hour
-							</td>
-						</tr>
-					</table>
-				</div>
+	<div class="m_table">
+		<table width="70%" style="text-align:center">
+			<tr style="font-weight: bold; font-size: 0.9em; text-align:left; background-color: #3F3F3F">
+				<td>
+					Pro Version Prices**
+				</td>
+				<td>
+					Yearly
+				</td>
+				<td>
+					Life-time
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					<font color="#1E90FF">
+						Limited 1 machine (can be VPS or your computer) for Pro Version
+					</font>
+				</td>
+				<td>
+					<font color="#1E90FF">
+						&#8364;1999 (pro-data: &#8364;166/machine/pm)
+					</font>
+				</td>
+				<td>
+					<font color="#1E90FF">
+						&#8364;4999 (pro-data for 5 yrs: &#8364;83/machine/pm)
+					</font>
+				</td>
+			</tr>
 
-				<div class="m_table">
-					<table width="80%" style="text-align:center">
-						<tr style="font-weight: bold; font-size: 0.9em; text-align:left; background-color: #3F3F3F">
-							<td>
-								Full Version Prices from 1 Feb 2024 onwards*
-							</td>
-							<td>
-								Monthly
-							</td>
-							<td>
-								Yearly
-							</td>
-							<td>
-								Life-time
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Limited to 1 vps
-							</td>
-							<td>
-								&#8364;59
-							</td>
-							<td>
-								&#8364;599
-							</td>
-							<td>
-								&#8364;1799
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left; background-color: #272526">
-							<td>
-								Limited to 2 vps
-							</td>
-							<td>
-								&#8364;79
-							</td>
-							<td>
-								&#8364;799
-							</td>
-							<td>
-								&#8364;2399
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								Limited to 5 vps
-							</td>
-							<td>
-								&#8364;149
-							</td>
-							<td>
-								&#8364;1499
-							</td>
-							<td>
-								&#8364;4499
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left; background-color: #272526">
-							<td>
-								Limited to 10 vps
-							</td>
-							<td>
-								&#8364;199
-							</td>
-							<td>
-								&#8364;1999
-							</td>
-							<td>
-								&#8364;5999
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								<br>
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left">
-							<td>
-								*Payment methods: PayPal / Skrill / USDT (trc20)
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left;"">
-							<td>
-								*Non-refundable
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-						</tr>
-						<tr style="font-size: 0.8em; text-align:left;"">
-							<td>
-								*Existing customers can pay same old price as 2023 in 2024
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-						</tr>
-					</table>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					<br>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					**Payment methods: USDT (erc20) / Bankwire only
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr style="font-size: 0.8em; text-align:left">
+				<td>
+					**Non-refundable
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+		</table>
 
-				</div>
-								
+	</div>
 
 
-				<font color="#383838">
-					<span>*Excl. VAT (Add 21% VAT to EU residents / Anonymous who doesn't want to give address)</span>
-				</font>
-			</td>
-		</tr>
-	</table>
+	<div class="hawkeye_container">
+		<div class="centered">
+			<font color="#383838">
+				<span>*Excl. VAT (Add 21% VAT to EU residents / Anonymous who doesn't want to give address)</span>
+			</font>
+		</div>
+	</div>
+
+
 
 
 	<table width="100%">
@@ -769,9 +1066,9 @@
 				<h1>FAQ</h1>
 			</font>
 		</div>
-		
+
 		<tr>
-		 
+
 			<td width="50%" style="text-align:center">
 				<div class="faq">
 					<div>
@@ -806,7 +1103,7 @@
 				</div>
 			</td>
 			<td width="50%" style="text-align:center">
-					<div class="faq">
+				<div class="faq">
 
 					<div>
 						<h3>Q: What are the minimum hardware requirements?</h3>
@@ -848,16 +1145,16 @@
 
 			</font>
 		</div>
-		
+
 		<tr>
-		 
+
 			<td width="50%" style="text-align:center">
 				<span><a href="https://t.me/antonnel" target="_blank" style="color:#3F3F3F; font-size: 1.2em;"><img style="width: 44px;" src="telegram.png" class="image"></a></span>
-			    <span><h3>@antonnel</h3></span>
+				<span><h3>@antonnel</h3></span>
 			</td>
 			<td width="50%" style="text-align:center">
 				<span><img style="width: 44px;" src="email.png" class="image"></span>
-			    <span><h3>anton.nel.be@gmail.com</h3></span>
+				<span><h3>anton.nel.be@gmail.com</h3></span>
 			</td>
 		</tr>
 
@@ -869,18 +1166,16 @@
 
 			</font>
 		</div>
-		
-		<tr>
-		 
-			<td width="50%" style="text-align:center">
 
+		<tr>
+
+			<td width="50%" style="text-align:center">
 			</td>
 			<td width="50%" style="text-align:center">
-
 			</td>
 		</tr>
 
 	</table>
 
-	</body>
+</body>
 </html>

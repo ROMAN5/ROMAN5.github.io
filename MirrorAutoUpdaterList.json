@@ -15,17 +15,72 @@
     "Major": 0
   },
   {
-    "ID": 3,
+    "ID": 3
+    "Version": "5.2.5.13",
+    "Major": 0
+  },
+  {
+    "ID": 4,
+    "Version": "5.2.5.14",
+    "Major": 0
+  },
+  {
+    "ID": 5,
+    "Version": "5.2.5.15",
+    "Major": 0
+  },
+  {
+    "ID": 6,
+    "Version": "5.2.5.16",
+    "Major": 0
+  },
+  {
+    "ID": 7,
+    "Version": "5.2.5.17",
+    "Major": 0
+  },
+  {
+    "ID": 8,
+    "Version": "5.2.5.18",
+    "Major": 0
+  },
+  {
+    "ID": 9,
+    "Version": "5.2.5.19",
+    "Major": 0
+  },
+  {
+    "ID": 10,
+    "Version": "5.2.5.20",
+    "Major": 0
+  },
+  {
+    "ID": 11,
+    "Version": "5.2.5.21",
+    "Major": 0
+  },
+  {
+    "ID": 12,
+    "Version": "5.2.5.22",
+    "Major": 0
+  },
+  {
+    "ID": 13
+    "Version": "5.2.5.23",
+    "Major": 0
+  },
+  {
+    "ID": 14,
     "Version": "5.2.6.0",
     "Major": 0
   },
   {
-    "ID": 4,
+    "ID": 15,
     "Version": "5.2.6.1",
     "Major": 0
   },
   {
-    "ID": 4,
+    "ID": 16,
     "Version": "5.2.6.2",
     "Major": 0
   }

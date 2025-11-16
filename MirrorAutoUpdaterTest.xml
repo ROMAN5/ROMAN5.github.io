@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <item>
-	<version>5.2.9.1</version>
+	<version>5.3.0.0</version>
 	<url>https://mirror-trading-manager.b-cdn.net/Test/Mirror5.App.Major.zip</url>
-	<mandatory>true</mandatory>
+		
+    <!-- Force update -->
+    <mandatory>true</mandatory>
+
+    <!-- Run DotNet installer after download, before app restarts -->
+    <execute>InstallDotNet10.exe</execute>
+
+    <!-- Optional args -->
+    <args>/quiet /norestart</args> 
 </item>

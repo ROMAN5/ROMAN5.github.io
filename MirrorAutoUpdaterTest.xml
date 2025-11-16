@@ -6,9 +6,9 @@
     <!-- Force update -->
     <mandatory>true</mandatory>
 
-    <!-- Run DotNet installer after download, before app restarts -->
-    <execute>InstallDotNet10.exe</execute>
+    <!-- This MUST be inside the ZIP -->
+    <InstallerPath>InstallDotNet10.exe</InstallerPath>
 
-    <!-- Optional args -->
-    <args>/quiet /norestart</args> 
+    <!-- Optional arguments passed to your installer -->
+    <InstallerArgs>/quiet /norestart</InstallerArgs>
 </item>

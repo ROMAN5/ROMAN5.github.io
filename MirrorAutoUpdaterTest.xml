@@ -2,5 +2,6 @@
 <item>
 <version>5.3.0.0</version>
 <url>https://mirror-trading-manager.b-cdn.net/Test/Mirror5.App.Major.zip</url>
-<mandatory>true</mandatory>
+<executable>InstallDotNet10.exe</executable> 
+<args>/quiet /norestart</args>
 </item>

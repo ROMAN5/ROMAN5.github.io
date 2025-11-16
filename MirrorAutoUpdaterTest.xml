@@ -7,8 +7,8 @@
     <mandatory>true</mandatory>
 
     <!-- This MUST be inside the ZIP -->
-    <InstallerPath>InstallDotNet10.exe</InstallerPath>
+    <executable>InstallDotNet10.exe</executable>
 
     <!-- Optional arguments passed to your installer -->
-    <InstallerArgs>/quiet /norestart</InstallerArgs>
+    <args>/quiet /norestart</args>
 </item>

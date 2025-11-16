@@ -4,7 +4,7 @@
 	<url>https://mirror-trading-manager.b-cdn.net/Test/Mirror5.App.Major.zip</url>
 		
     <!-- Force update -->
-    <mandatory>true</mandatory>
+    <mandatory mode="2">true</mandatory>
 
     <!-- This MUST be inside the ZIP -->
     <executable>InstallDotNet10.exe</executable>

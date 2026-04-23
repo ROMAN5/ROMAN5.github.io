@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
     <title>Anton Nel - Programmer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -122,12 +123,59 @@
         }
 
         .badge {
-            background: rgba(255,255,255,0.15);
+            
             padding: 6px 14px;
             border-radius: 8px;
             font-size: 13px;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
+
+            .badge i {
+                font-size: 32px;
+            }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 14px;
+            border-radius: 12px;
+            /*background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);*/
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+            /* icon size */
+            .tech-item i {
+                font-size: 24px;
+            }
+
+            /* hover effect */
+            .tech-item:hover {
+                transform: translateY(-3px);
+                background: rgba(255, 255, 255, 0.22);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            }
+
+                .tech-item:hover i {
+                    filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
+                }
 
         /* CONTAINER */
         .container {
@@ -200,7 +248,7 @@
         }
             /* FontAwesome */
             .icon i {
-                font-size: 18px;
+                font-size: 22px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -208,8 +256,8 @@
 
             /* Lucide SVG */
             .icon svg {
-                width: 26px;
-                height: 26px;
+                width: 30px;
+                height: 30px;
                 display: block;
             }
 
@@ -328,18 +376,18 @@
 
         .icon-circle {
             background: #0C54C6;
-            width: 32px;
-            height: 32px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex: 0 0 32px;
+            flex: 0 0 42px;
             color: white;
         }
             /* FontAwesome */
             .icon-circle i {
-                font-size: 18px;
+                font-size: 24px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -347,8 +395,8 @@
 
             /* Lucide SVG */
             .icon-circle svg {
-                width: 26px;
-                height: 26px;
+                width: 32px;
+                height: 32px;
                 display: block;
             }
 
@@ -377,6 +425,12 @@
 
         /* MOBILE */
         @media(max-width: 768px) {
+            .container {
+                max-width: 1100px;
+                margin: 10px auto 40px;
+                padding: 0 20px;
+            }
+
             .grid {
                 grid-template-columns: 1fr;
             }
@@ -385,8 +439,36 @@
                 grid-template-columns: 1fr;
             }
 
+            .hero h1 {
+                font-size: 32px;
+                margin: 0px;
+                font-weight: 700;
+                margin-top: -20px;
+                margin-bottom: 0px;
+            }
+
+            .hero .subtitle {
+                font-size: 22px;
+                color: #9cc7ff;
+                margin-bottom: 0px;
+                position: relative;
+                display: block;
+                padding: 0;
+            }
+
+                .hero .subtitle::before,
+                .hero .subtitle::after {
+                    content: "";
+                    display: inline-block;
+                    width: 40px;
+                    height: 1px;
+                    background: currentColor;
+                    vertical-align: middle;
+                    margin: 0 10px;
+                }
+
             .avatar {
-                margin-bottom: -35px;
+                margin-bottom: 0px;
             }
 
             .hero-row {
@@ -419,10 +501,33 @@
                 <div class="subtitle">Programmer</div>
 
                 <div class="badges">
-                    <div class="badge">C#</div>
-                    <div class="badge">.NET</div>
-                    <div class="badge">SQL</div>
-                    <div class="badge">Azure</div>
+                    <div class="badges">
+
+                        <div class="tech-stack">
+
+                            <div class="tech-item" title="C#">
+                                <i style="color: #966BC2" class="devicon-csharp-plain"></i>
+                                <span>C#</span>
+                            </div>
+
+                            <div class="tech-item" title=".NET">
+                                <i style="color: #1551B9 " class="devicon-windows11-original"></i>
+                                <span>.NET</span>
+                            </div>
+
+                            <div class="tech-item" title="SQL Server">
+                                <i style="color: #9cc7ff" class="fa-solid fa-database"></i>
+                                <span>SQL</span>
+                            </div>
+
+                            <div class="tech-item" title="Azure">
+                                <i style="color: #9cc7ff" class="fa-solid fa-cloud"></i>
+                                <span>Azure</span>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
@@ -499,7 +604,7 @@
                 <hr />
                 <div class="contact-item">
                     <div class="icon">
-                        <i class="fa-brands fa-github"></i>
+                        <i style="color:black" class="fa-brands fa-github"></i>
                     </div>
 
                     <div class="contact-text">

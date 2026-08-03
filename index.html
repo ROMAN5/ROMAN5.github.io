@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
     <!-- Google tag (gtag.js) -->
@@ -15,1538 +14,692 @@
 	  gtag('config', 'G-J48FN2PMY3');
 	</script>
 
-    <title>Anton Nel Mirror Trading Manager Copier</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="noindex,nofollow">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://www.antonnel.net/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://www.antonnel.net/favicon-32x32.png">
-    <meta name="description" content="Super-fast copy-trading software">
-    <meta property="og:description" content="Super-fast copy-trading software">
-    <meta property="og:title" content="Anton Nel Mirror Trading Manager Copier">
-    <meta property="og:url" content="https://antonnel.net/mirror/">
-    <meta property="og:image" content="https://antonnel.net/mirror//seo_card.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-    <!-- Trackdesk tracker begin -->
-    <script async src="//cdn.trackdesk.com/tracking.js"></script>
-    <script src="trackdesk.js" defer></script>
-    <script src="trackdeskpayment.js"></script>
-    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+    <title>Anton Nel - Programmer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --bg: #0b0f1a;
-            --card: #121a2b;
-            --text: #eaeaea;
-            --muted: #9aa0ad;
-            --accent: #4da3ff;
-            --border: #1f2a44;
-        }
-		
-		html {
-			scroll-behavior: smooth;
-		}
-
-		[id] {
-			scroll-margin-top: 80px;
-		}
-
-        body.light {
-            --bg: #f5f7fb;
-            --card: #ffffff;
-            --text: #111;
-            --muted: #555;
-            --border: #ddd;
+        html {
+            font-size: 14px;
         }
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            transition: 0.3s;
+            font-family: 'Inter', sans-serif;
+            background: #eef1f6;
         }
 
-        /* THEME */
-        .theme-switch {
-            width: 70px;
-            height: 36px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 50px;
+        h1 {
+            font-size: 28px;
+        }
+
+        h2 {
+            font-size: 21px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #C76025;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        h4 {
+            font-size: 14px;
+        }
+
+        /* HERO LAYOUT */
+        .hero {
+            height: 320px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('mountains.png') center/cover;
             display: flex;
             align-items: center;
-            padding: 4px;
-            cursor: pointer;
+            justify-content: center;
+            text-align: center;
+            color: white;
         }
 
-        .theme-thumb {
-            width: 28px;
-            height: 28px;
-            background: var(--accent);
+        .hero-inner {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* DESKTOP = row */
+        .hero-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        /* TEXT ALIGN LEFT on desktop */
+        .hero-text {
+            text-align: left;
+        }
+
+
+        .hero-inner {
+            max-width: 800px;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.8);
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin: 10px 0 5px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .hero .subtitle {
+            font-size: 22px;
+            color: #9cc7ff;
+            margin-bottom: 15px;
+            position: relative;
+            display: block;
+            padding: 0;
+        }
+
+            .hero .subtitle::before,
+            .hero .subtitle::after {
+                content: "";
+                display: inline-block;
+                width: 40px;
+                height: 1px;
+                background: currentColor;
+                vertical-align: middle;
+                margin: 0 10px;
+            }
+
+        /* SKILLS BADGES */
+        .badges {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: nowrap; /* force single row */
+        }
+
+        .badge {
+            
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+            .badge i {
+                font-size: 32px;
+            }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 14px;
+            border-radius: 12px;
+            /*background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);*/
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.25s ease;
+            cursor: default;
+        }
+
+            /* icon size */
+            .tech-item i {
+                font-size: 24px;
+            }
+
+            /* hover effect */
+            .tech-item:hover {
+                transform: translateY(-3px);
+                background: rgba(255, 255, 255, 0.22);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            }
+
+                .tech-item:hover i {
+                    filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
+                }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: -60px auto 40px;
+            padding: 0 20px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        /* CARD */
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+            /* BIO */
+            .card h2 {
+                margin-top: 0;
+            }
+
+        /* CONTACT */
+        .contact-item {
+            display: flex;
+            align-items: flex-start; /* key: aligns icon with top of text block */
+            gap: 10px;
+        }
+
+        .contact-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .contact-text .label {
+                font-weight: 600;
+                line-height: 1.2;
+            }
+
+            .contact-text .footer {
+                color: #0C54C6;
+                text-decoration: none;
+                font-size: 11px;
+                line-height: 1.2;
+                opacity: 0.95;
+            }
+
+            .contact-text a {
+                color: #0C54C6;
+                text-decoration: none;
+                font-size: 14px;
+                line-height: 1.2;
+            }
+
+        .icon {
+            width: 36px;
+            height: 36px;
+            background: #E8F1FC;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0C54C6;
+        }
+            /* FontAwesome */
+            .icon i {
+                font-size: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Lucide SVG */
+            .icon svg {
+                width: 30px;
+                height: 30px;
+                display: block;
+            }
+
+        .contact a {
+            color: #0C54C6;
+            text-decoration: none;
+            font-size: 11px;
+            line-height: 1.2;
+            opacity: 0.85;
+        }
+
+        /* PRODUCT */
+        .product {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+            .product img {
+                width: 100%;
+                border-radius: 12px;
+            }
+
+        .product-image {
+            display: flex;
+            align-items: center; /* vertical center */
+            justify-content: center; /* horizontal center */
+        }
+
+            .product-image img {
+                width: 50%; /* adjust as you like */
+                border-radius: 12px;
+            }
+
+        .product-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 6px;
+        }
+
+            .product-item .icon {
+                margin-bottom: 2px;
+            }
+
+        .product-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .product-text .label {
+                font-weight: 600;
+                line-height: 1.2;
+            }
+
+            .product-text .footer {
+                color: #0C54C6;
+                text-decoration: none;
+                font-size: 11px;
+                line-height: 1.2;
+                opacity: 0.95;
+            }
+
+
+        .features {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .feature {
+            text-align: center;
+            flex: 1;
+            font-size: 13px;
+        }
+
+        .icon-green {
+            background: #E6F4EA;
+            color: #34A853;
+        }
+
+        .icon-blue {
+            background: #E8F1FC;
+            color: #0C54C6;
+        }
+
+        .icon-purple {
+            background: #F1ECFF;
+            color: #6C4CE3;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #0C54C6;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .contact-row h2 {
+                margin: 0;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+            }
+
+        .icon-circle {
+            background: #0C54C6;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex: 0 0 42px;
             color: white;
-            transition: 0.3s;
         }
+            /* FontAwesome */
+            .icon-circle i {
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-        body.light .theme-thumb {
-            transform: translateX(34px);
-            background: #ffb020;
-        }
-		
-		/* MENU BAR */
-		.navbar {
-			position: sticky;
-			top: 0;
-			z-index: 999;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 30px;
-			padding: 14px 20px;
-			background: var(--card);
-			border-bottom: 1px solid var(--border);
-		}
+            /* Lucide SVG */
+            .icon-circle svg {
+                width: 32px;
+                height: 32px;
+                display: block;
+            }
 
-		.navbar a {
-			color: var(--text);
-			text-decoration: none;
-			font-weight: bold;
-			font-size: 15px;
-			transition: 0.2s;
-		}
-
-		.navbar a:hover {
-			color: var(--accent);
-		}
-
-        /* HERO */
-        .hero {
+        /* FOOTER */
+        footer {
             text-align: center;
-            padding: 50px 20px;
-        }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero p {
-                max-width: 700px;
-                margin: 10px auto 0;
-                color: var(--muted);
-            }
-
-        /* SWITCH */
-        .switcher {
-            text-align: center;
-            margin: 30px;
-        }
-
-            .switcher button {
-                margin: 5px;
-                padding: 10px 14px;
-                border-radius: 20px;
-                border: 1px solid var(--border);
-                background: transparent;
-                color: var(--text);
-                cursor: pointer;
-            }
-
-                .switcher button.active {
-                    background: var(--accent);
-                    color: white;
-                }
-
-        /* PRICING */
-        .pricing {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            max-width: 1100px;
-            margin: auto;
+            font-size: 12px;
+            color: #777;
             padding: 20px;
         }
 
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .price {
-            font-size: 24px;
-            color: var(--accent);
-        }
-
-        .btn {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: var(--accent);
+        hr {
             border: none;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            display: inline-block;
-            text-decoration: none;
-            text-align: center;
+            border-top: 1px solid #ccc;
+            margin: 15px 0;
         }
 
-        /* TABLE */
-        .table-wrap {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-            overflow-x: auto;
+        a {
+            font-size: 14px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 700px;
+        .soft-title {
+            font-weight: 400;
+            color: #0C54C6;
         }
 
-        th, td {
-            border: 1px solid var(--border);
-            padding: 10px;
-            text-align: center;
-            font-size: 12px;
-        }
-
-        th {
-            background: var(--card);
-        }
-        /* ADVANCED TABLE MOBILE FIX */
-        @media (max-width: 900px) {
-
-            #advancedFeatures table {
-                table-layout: fixed;
-                min-width: 620px;
+        /* MOBILE */
+        @media(max-width: 768px) {
+            .container {
+                max-width: 1100px;
+                margin: 10px auto 40px;
+                padding: 0 20px;
             }
 
-            #advancedFeatures th,
-            #advancedFeatures td {
-                padding: 6px 5px;
-                font-size: 12px;
-                line-height: 1.2;
-            }
-
-                /* FIRST COLUMN */
-                #advancedFeatures td:first-child,
-                #advancedFeatures th:first-child {
-                    font-size: 11px;
-                    line-height: 1.15;
-                    word-break: break-word;
-                    width: 42%;
-                }
-
-                /* OTHER COLUMNS */
-                #advancedFeatures td:not(:first-child),
-                #advancedFeatures th:not(:first-child) {
-                    width: 14.5%;
-                }
-
-            #advancedFeatures .icon-check::before,
-            #advancedFeatures .icon-no::before {
-                width: 14px;
-                height: 14px;
-            }
-        }
-
-        /* MORE FEATURES */
-        .hidden {
-            display: none;
-        }
-
-        /* FAQ */
-        .faq {
-            max-width: 1100px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .faq-item {
-            background: var(--card);
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .faq-answer {
-            display: none;
-            margin-top: 10px;
-            color: var(--muted);
-        }
-
-        /* TESTIMONIALS LOOP */
-        .testimonials-wrapper {
-            overflow: hidden;
-            max-width: 1100px;
-            margin: 60px auto;
-        }
-
-        .testimonials {
-            display: flex;
-            gap: 15px;
-            width: max-content;
-            animation: scrollLoop 90s linear infinite;
-        }
-
-        .testimonials-wrapper:hover .testimonials {
-            animation-play-state: paused;
-        }
-
-        .testimonial {
-            min-width: 300px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 15px;
-        }
-
-        @keyframes scrollLoop {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .check {
-            color: #22c55e;
-        }
-
-        .no {
-            color: #ef4444;
-        }
-
-        .icon-check,
-        .icon-no {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            height: 18px;
-            vertical-align: middle;
-        }
-
-        /* GREEN CHECK */
-        .icon-check {
-            color: #16a34a;
-        }
-
-            .icon-check::before {
-                content: "";
-                width: 18px;
-                height: 18px;
-                display: block;
-                background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
-            }
-
-        /* RED CROSS */
-        .icon-no {
-            color: #dc2626;
-        }
-
-            .icon-no::before {
-                content: "";
-                width: 18px;
-                height: 18px;
-                display: block;
-                background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
-            }
-
-        /* =========================
-           MOBILE OPTIMIZATION PATCH
-           ========================= */
-
-        @media (max-width: 900px) {
-            .icon-check::before,
-            .icon-no::before {
-                width: 16px;
-                height: 16px;
-            }
-
-            /* pricing → stack */
-            .pricing {
+            .grid {
                 grid-template-columns: 1fr;
             }
 
-            /* make buttons easier to tap */
-            .switcher button {
-                width: 48%;
-                margin: 5px 1%;
+            .product {
+                grid-template-columns: 1fr;
             }
 
-            /* testimonials smaller cards */
-            .testimonial {
-                min-width: 240px;
-                font-size: 13px;
-                line-height: 1.5;
-            }
-
-            .testimonials-wrapper h2 {
-                font-size: 22px;
-            }
-
-            /* hero text scale */
             .hero h1 {
-                font-size: 28px;
+                font-size: 32px;
+                margin: 0px;
+                font-weight: 700;
+                margin-top: -20px;
+                margin-bottom: 0px;
             }
 
-            /* table scroll smoother */
-            .table-wrap {
-                padding: 0 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .theme-switch {
-                width: 60px;
-                height: 32px;
+            .hero .subtitle {
+                font-size: 22px;
+                color: #9cc7ff;
+                margin-bottom: 0px;
+                position: relative;
+                display: block;
+                padding: 0;
             }
 
-            .theme-thumb {
-                width: 24px;
-                height: 24px;
+                .hero .subtitle::before,
+                .hero .subtitle::after {
+                    content: "";
+                    display: inline-block;
+                    width: 40px;
+                    height: 1px;
+                    background: currentColor;
+                    vertical-align: middle;
+                    margin: 0 10px;
+                }
+
+            .avatar {
+                margin-bottom: 0px;
+            }
+
+            .hero-row {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .badges {
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .btn {
-                width: 100%;
+                display: block;
+                width: fit-content;
+                margin: 15px auto 0 auto; /* 👈 this centers it */
+                text-align: center;
             }
         }
-		
-		/* ============================
-		   EDITION THEMES
-		   ============================ */
-
-		/* FREE */
-		.edition-free {
-			--edition-main: #6B7280;
-			--edition-light: #8B92A0;
-			--edition-bg: rgba(107,114,128,0.15);
-		}
-
-		.edition-free .price,
-		.edition-free h3 {
-			color: var(--edition-light);
-		}
-
-
-		/* BASIC - Emerald */
-		.edition-basic {
-			--edition-main: #10B981;
-			--edition-light: #34D399;
-			--edition-bg: rgba(16,185,129,0.15);
-		}
-
-		.edition-basic .price,
-		.edition-basic h3 {
-			color: var(--edition-light);
-		}
-
-
-		/* STANDARD - Royal Blue */
-		.edition-standard {
-			--edition-main: #2563EB;
-			--edition-light: #60A5FA;
-			--edition-bg: rgba(37,99,235,0.15);
-		}
-
-		.edition-standard .price,
-		.edition-standard h3 {
-			color: var(--edition-light);
-		}
-
-
-		/* PRO - Gold */
-		.edition-pro {
-			--edition-main: #FFD700;
-			--edition-light: #FFB000;
-			--edition-bg: rgba(255,215,0,0.15);
-		}
-
-		.edition-pro .price,
-		.edition-pro h3 {
-			color: var(--edition-light);
-		}
-
-
-
-		/* CARD STYLE */
-		.card.edition-free,
-		.card.edition-basic,
-		.card.edition-standard,
-		.card.edition-pro {
-
-			border: 2px solid var(--edition-main);
-			background:
-				linear-gradient(
-					135deg,
-					var(--edition-bg),
-					var(--card)
-				);
-
-			box-shadow:
-				0 0 15px var(--edition-bg);
-
-			transition: .3s;
-		}
-
-
-		.card.edition-free:hover,
-		.card.edition-basic:hover,
-		.card.edition-standard:hover,
-		.card.edition-pro:hover {
-
-			transform: translateY(-5px);
-
-			box-shadow:
-				0 0 25px var(--edition-main);
-		}
-
-
-
-		/* BUTTONS */
-		.card.edition-free .btn,
-		.card.edition-basic .btn,
-		.card.edition-standard .btn,
-		.card.edition-pro .btn {
-
-			background: var(--edition-main);
-			color:#000;
-			font-weight:bold;
-		}
-
-
-
-		/* TABLE HEADERS */
-
-		th.edition-free {
-			background:
-				linear-gradient(
-					135deg,
-					#6B7280,
-					#8B92A0
-				);
-			color:white;
-		}
-
-
-		th.edition-basic {
-			background:
-				linear-gradient(
-					135deg,
-					#059669,
-					#34D399
-				);
-			color:white;
-		}
-
-
-		th.edition-standard {
-			background:
-				linear-gradient(
-					135deg,
-					#1D4ED8,
-					#60A5FA
-				);
-			color:white;
-		}
-
-
-		th.edition-pro {
-			background:
-				linear-gradient(
-					135deg,
-					#FFB000,
-					#FFF2A6
-				);
-			color:#111;
-		}
-		
-		/* ============================
-		   EDITION DOWNLOAD BUTTONS
-		   ============================ */
-
-		.btn.edition-free,
-		.btn.edition-basic,
-		.btn.edition-standard,
-		.btn.edition-pro {
-
-			font-weight: bold;
-			border: 1px solid transparent;
-			transition: .25s;
-		}
-
-
-		/* FREE */
-		.btn.edition-free {
-			background: #6B7280;
-			border-color: #8B92A0;
-			color: white;
-		}
-
-		.btn.edition-free:hover {
-			background: #8B92A0;
-		}
-
-
-		/* BASIC */
-		.btn.edition-basic {
-			background: #10B981;
-			border-color: #34D399;
-			color: white;
-		}
-
-		.btn.edition-basic:hover {
-			background: #34D399;
-		}
-
-
-		/* STANDARD */
-		.btn.edition-standard {
-			background: #2563EB;
-			border-color: #60A5FA;
-			color: white;
-		}
-
-		.btn.edition-standard:hover {
-			background: #60A5FA;
-		}
-
-
-		/* PRO */
-		.btn.edition-pro {
-			background: #FFD700;
-			border-color: #FFF2A6;
-			color: #111;
-		}
-
-		.btn.edition-pro:hover {
-			background: #FFF2A6;
-		}
-		
-		/* ============================
-		   TABLE EDITION COLUMNS
-		   ============================ */
-
-		.col-free {
-			background: rgba(107,114,128,0.08);
-		}
-
-		.col-basic {
-			background: rgba(16,185,129,0.08);
-		}
-
-		.col-standard {
-			background: rgba(37,99,235,0.08);
-		}
-
-		.col-pro {
-			background: rgba(255,215,0,0.08);
-		}
-
-
-		/* stronger hover effect */
-		table tr:hover td {
-			background: rgba(255,255,255,0.05);
-		}
-
-
-		/* keep feature column neutral */
-		table td:first-child {
-			background: var(--card);
-			font-weight: bold;
-		}
-		
-		.col-free {
-			box-shadow: inset 0 0 25px rgba(107,114,128,.15);
-		}
-
-		.col-basic {
-			box-shadow: inset 0 0 25px rgba(16,185,129,.15);
-		}
-
-		.col-standard {
-			box-shadow: inset 0 0 25px rgba(37,99,235,.15);
-		}
-
-		.col-pro {
-			box-shadow: inset 0 0 25px rgba(255,215,0,.15);
-		}
     </style>
+
 </head>
 
 <body>
-	<!-- NAVIGATION MENU -->
-	<div class="navbar">
-		<a href="#home">Home</a>
-		<a href="#pricing">Pricing</a>
-		<a href="#features">Features</a>
-		<a href="#downloads">Downloads</a>
-		<a href="#testimonials">Client Feedback</a>
-		<a href="#affiliates">Affiliates</a>
-		<a href="#faq">FAQ</a>
-
-		<div class="theme-switch" onclick="toggleTheme()">
-			<div class="theme-thumb" id="thumb">🌙</div>
-		</div>
-	</div>
-
-    <!-- HERO -->
-    <div class="hero" id="home">
-        <h1>Mirror Trading Manager</h1>
-        <p>Super-fast copy trading system with execution control, risk protection, and multi-account synchronization.</p>
-    </div>
-
-    
-
-    <!-- PRICING -->
-    <div class="faq" id="pricing">
-
-		<h2 style="text-align:center; margin-bottom:20px;">
-            Pricing
-        </h2>
-		
-	    <!-- SWITCH -->
-		<div class="switcher">
-			<button class="active" onclick="setPlan('monthly', this)">Monthly</button>
-			<button onclick="setPlan('6m', this)">6 Months</button>
-			<button onclick="setPlan('yearly', this)">Yearly</button>
-			<button onclick="setPlan('lifetime', this)">Lifetime</button>
-		</div>
-	</div>
-	
-    <div class="pricing">	
-        <div class="card edition-free">
-            <h3>Free</h3>
-            <div class="price">€0</div>
-        </div>
-
-        <div class="card edition-basic">
-            <h3>Basic</h3>
-            <div class="price" id="basicPrice">€29</div>
-            <button class="btn">Subscribe</button>
-        </div>
-
-        <div class="card edition-standard" style="position:relative; overflow:hidden;">
-            <div style="
-                position:absolute;
-                top:18px;
-                right:-55px;
-                transform:rotate(45deg);
-                background:var(--accent);
-                color:#fff;
-                padding:8px 60px;
-                font-size:11px;
-                font-weight:bold;
-                text-align:center;
-                line-height:1.2;
-                white-space:nowrap;
-            ">
-                MOST<br>POPULAR
-            </div>
-            <h3>Standard</h3>
-            <div class="price" id="standardPrice">€79</div>
-            <button class="btn">Subscribe</button>
-        </div>
-
-        <div class="card edition-pro">
-            <h3>Pro</h3>
-            <div class="price" id="proPrice">€179</div>
-            <button class="btn">Subscribe</button>
-        </div>
-
-    </div>
-
-    <!-- MAIN TABLE -->
-    <div class="table-wrap" id="features">
-        <table>
-			 <colgroup>
-				<col>
-				<col class="col-free">
-				<col class="col-basic">
-				<col class="col-standard">
-				<col class="col-pro">
-			</colgroup>
-	
-            <tr>
-				<th>Feature</th>
-				<th class="edition-free">Free</th>
-				<th class="edition-basic">Basic</th>
-				<th class="edition-standard">Standard</th>
-				<th class="edition-pro">Pro</th>
-			</tr>
-
-            <tr>
-                <td>Master Accounts</td>
-                <td>1</td>
-                <td>1</td>
-                <td>Unlimited</td>
-                <td>Unlimited</td>
-            </tr>
-
-            <tr>
-                <td>Follower Accounts</td>
-                <td>1</td>
-                <td>Up to 10</td>
-                <td>Unlimited</td>
-                <td>Unlimited</td>
-            </tr>
-
-            <tr>
-                <td>Application instance per machine</td>
-                <td>1</td>
-                <td>1</td>
-                <td>5</td>
-                <td>32</td>
-            </tr>
-
-            <tr>
-                <td>Machines per license key</td>
-                <td>-</td>
-                <td>1</td>
-                <td>2</td>
-                <td>5</td>
-            </tr>
-
-            <tr>
-                <td>Master Speed Loop</td>
-                <td>Per Second</td>
-                <td>10x faster</td>
-                <td>100x faster</td>
-                <td>1000x faster</td>
-            </tr>
-
-            <tr>
-                <td>Master Engine Type</td>
-                <td>Normal</td>
-                <td>Normal</td>
-                <td>Normal</td>
-                <td>Super HFT</td>
-            </tr>
-
-            <tr>
-                <td>Copy TP and SL</td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Reverse Trading</td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-			
-			<tr>
-                <td>Daily P/L Limits</td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Local Web Portal</td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Telegram Notifications</td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Support (5 Working days/week)</td>
-                <td class="check">Support - Max. 1 Hour only</td>
-                <td class="check">Support - Low priority</td>
-                <td class="check">Support - Medium priority</td>
-                <td class="check">Support - High priority</td>
-            </tr>
-
-        </table>
-    </div>
-
-
-
-    <!-- MORE FEATURES BUTTON (RESTORED) -->
-    <div style="text-align:center; margin:20px;">
-        <button class="btn" onclick="toggleAdvanced()">More Features</button>
-    </div>
-
-    <!-- ADVANCED TABLE (RESTORED) -->
-    <div class="table-wrap hidden" id="advancedFeatures">
-
-        <table>
-			<colgroup>
-				<col>
-				<col class="col-free">
-				<col class="col-basic">
-				<col class="col-standard">
-				<col class="col-pro">
-			</colgroup>
-			
-            <tr>
-				<th>Feature</th>
-				<th class="edition-free">Free</th>
-				<th class="edition-basic">Basic</th>
-				<th class="edition-standard">Standard</th>
-				<th class="edition-pro">Pro</th>
-			</tr>
-
-
-            <tr>
-                <td>News Filter</td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Copy Order Comment</td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Equity Protector</td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Target DD/TP - Close All Trades</td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Pending Orders</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Manual 'New Order' Button</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Protection: Maximum Number of Open Positions</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Protection: Maximum Number of Open Positions Per Symbol</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Copy Pre-Existing Orders</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Advanced Repeat Open Orders</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Trading Filters/Conditions</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Custom Lot Size per Symbol</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Custom TP/SL per Symbol</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Hidden TP/SL per Symbol</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Auto Save Accounts To JSON File Live</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Export History Trades</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>FileDrop Integration</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>Webhooks Integration</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-            <tr>
-                <td>REST API Access</td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-no"></span></td>
-                <td><span class="icon-check"></span></td>
-            </tr>
-
-        </table>
-
-    </div>
 
     <div class="hero">
-        <p>Please note that all transactions are final and non-refundable.</p>
-        <p>Your satisfaction and trust are our top priorities.</p>
+        <div class="hero-inner hero-row">
+
+            <img src="10372996.jpg" class="avatar">
+
+            <div class="hero-text">
+                <h1>Anton Nel</h1>
+                <div class="subtitle">Programmer</div>
+
+                <div class="badges">
+                    <div class="badges">
+
+                        <div class="tech-stack">
+
+                            <div class="tech-item" title="C#">
+                                <i style="color: #966BC2" class="devicon-csharp-plain"></i>
+                                <span>C#</span>
+                            </div>
+
+                            <div class="tech-item" title=".NET">
+                                <i style="color: #1551B9 " class="devicon-windows11-original"></i>
+                                <span>.NET</span>
+                            </div>
+
+                            <div class="tech-item" title="SQL Server">
+                                <i style="color: #9cc7ff" class="fa-solid fa-database"></i>
+                                <span>SQL</span>
+                            </div>
+
+                            <div class="tech-item" title="Azure">
+                                <i style="color: #9cc7ff" class="fa-solid fa-cloud"></i>
+                                <span>Azure</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <!-- DOWNLOADS -->
-    <div class="faq" id="downloads">
+    <div class="container">
+        <div class="grid">
 
-		<h2 style="text-align:center; margin-bottom:20px;">
-            Downloads
-        </h2>
+            <!-- BIO -->
+            <div class="card">
+                <h2>👋 Hello, I’m Anton Nel</h2>
 
-        <div style="
-            background:var(--card);
-            border:1px solid var(--border);
-            border-radius:12px;
-            padding:25px;
-            line-height:1.9;">
-
-            <div style="text-align:center; color:var(--muted); margin-bottom:20px;">
-
-                <svg viewBox="0 0 2499.6 2500"
-                     xmlns="http://www.w3.org/2000/svg"
-                     fill="currentColor"
-                     style="width:16px;height:16px;vertical-align:middle;margin-right:6px;">
-
-                    <path d="M1187.9 1187.9H0V0h1187.9zM2499.6 1187.9h-1188V0h1187.9v1187.9zM1187.9 2500H0V1312.1h1187.9zM2499.6 2500h-1188V1312.1h1187.9V2500z"></path>
-
-                </svg>
-
-                <span>Windows 64bit</span>
-
-                <span style="color:var(--muted);">
-                    &nbsp; | &nbsp;
-                </span>
-
-                <span>.NET 10.0</span>
-
-                <span style="color:var(--muted);">
-                    &nbsp; | &nbsp;
-                </span>
-
-                <span>Latest Version 5.4.1.4 (2 Aug 2026)</span>
-
-            </div>
-
-            <div style="
-                display:grid;
-                grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-                gap:12px;
-                margin-bottom:25px;
-            ">
-
-                <a class="btn edition-free"
-                   href="https://mirror-trading-manager.b-cdn.net/Free/Mirror5%20-%20Free%20Version%20Setup.exe">
-                    Free Version
-                </a>
-
-                <a class="btn edition-basic"
-                   href="https://mirror-trading-manager.b-cdn.net/Basic/Mirror5%20-%20Basic%20Version%20Setup.exe">
-                    Basic Version
-                </a>
-
-                <a class="btn edition-standard"
-                   href="https://mirror-trading-manager.b-cdn.net/Standard/Mirror5%20-%20Standard%20Version%20Setup.exe">
-                    Standard Version
-                </a>
-
-                <a class="btn edition-pro"
-                   href="https://mirror-trading-manager.b-cdn.net/Pro/Mirror5%20-%20Pro%20Version%20Setup.exe">
-                    Pro Version
-                </a>
-
-            </div>
-
-            <p>
-                <strong>Free Version</strong> - Max 1 master and 1 follower.
-            </p>
-
-            <p style="color:#f5b041;">
-                <strong>Notice:</strong> The Lite Version was discontinued on
-                31 December 2025. Users are encouraged to switch to the
-                Free Version or the Basic Version.
-            </p>
-
-            <div style="
-                margin-top:20px;
-                padding:15px;
-                border:1px solid var(--border);
-                border-radius:10px;
-                background:rgba(255,255,255,0.02);
-            ">
-
-                <a class="btn"
-                   href="https://mirror-trading-manager.b-cdn.net/Preloads/InstallDotNet10.exe">
-                    Download .NET 10.0.10
-                </a>
-
-                <p style="color:var(--muted);">
-                    Unlock the full potential of mirror trading management
-                    by downloading our comprehensive guide. This detailed PDF
-                    provides step-by-step instructions for easy configuration
-                    and effective use, ensuring you make the most of our
-                    advanced mirror trading manager.
+                <p>
+                    I’m a software developer based in Belgium, originally from South Africa. My passion for technology began on a Commodore 64 in 1983, and I bring over two decades of hands-on experience building reliable, scalable software solutions, specializing in .NET since 2001.
                 </p>
 
-                <a class="btn"
-                   href="https://mirror-trading-manager.b-cdn.net/Mirror%20Trading%20Manager%20General%20Guide.pdf">
-                    General Guide (PDF)
-                </a>
+                <p>
+                    As a Microsoft Certified Professional (MCP) with certifications in Microsoft technologies, I combine strong technical expertise with a practical, business-focused approach. I help companies turn complex ideas into efficient, maintainable systems tailored to their needs - whether building from scratch or improving existing platforms.
+                </p>
 
+                <p>
+                    I have solid experience in financial domains, including cryptocurrency, forex, and accounting systems - environments where accuracy, performance, and reliability are essential.
+                </p>
+
+                <p>
+                    If you’re looking for a developer who understands both technology and business, I’d be glad to help bring your project to life.
+                </p>
             </div>
-			
-			
-			<div style="text-align: center; color: var(--muted); margin-top: 10px; margin-bottom: 20px; ">
 
-                <span>Previous Versions 5.4.1.2 (.NET 10 | 22 Jul 2026)</span>
-
-                <div style="
-                    display:grid;
-                    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-                    gap:12px;
-                ">
-
-                    <a class="btn"
-                       href="https://mirror-trading-manager.b-cdn.net/Previous%20Versions/v5.4.1.2/Mirror5%20-%20Free%20Version%20Setup.exe">
-                        Free (old)
-                    </a>
-
-                    <a class="btn"
-                       href="https://mirror-trading-manager.b-cdn.net/Previous%20Versions/v5.4.1.2/Mirror5%20-%20Basic%20Version%20Setup.exe">
-                        Basic (old)
-                    </a>
-
-                    <a class="btn"
-                       href="https://mirror-trading-manager.b-cdn.net/Previous%20Versions/v5.4.1.2/Mirror5%20-%20Standard%20Version%20Setup.exe">
-                        Standard (old)
-                    </a>
-
-                    <a class="btn"
-                       href="https://mirror-trading-manager.b-cdn.net/Previous%20Versions/v5.4.1.2/Mirror5%20-%20Pro%20Version%20Setup.exe">
-                        Pro (old)
-                    </a>
-
-                </div>
-				
-			</div>
-
-
-            <div style="text-align: center; color: var(--muted); margin-top: 10px; margin-bottom: 20px; ">
-
-                <span>Previous Versions 5.3.2.4 (.NET 9 | 13 Apr 2026)</span>
-
-                <div style="
-                    display:grid;
-                    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-                    gap:12px;
-                ">
-
-                    <a class="btn"
-                       href="https://mirror-trading-manager.b-cdn.net/Previous%20Versions/v5.3.2.4/Mirror5%20-%20Free%20Version%20Setup.exe">
-                        Free (old)
-                    </a>
-
-                    <a class="btn"
-                       href="https://mirror-trading-manager.b-cdn.net/Previous%20Versions/v5.3.2.4/Mirror5%20-%20Basic%20Version%20Setup.exe">
-                        Basic (old)
-                    </a>
-
-                    <a class="btn"
-                       href="https://mirror-trading-manager.b-cdn.net/Previous%20Versions/v5.3.2.4/Mirror5%20-%20Standard%20Version%20Setup.exe">
-                        Standard (old)
-                    </a>
-
-                    <a class="btn"
-                       href="https://mirror-trading-manager.b-cdn.net/Previous%20Versions/v5.3.2.4/Mirror5%20-%20Pro%20Version%20Setup.exe">
-                        Pro (old)
-                    </a>
-
+            <!-- CONTACT -->
+            <div class="card contact">
+                <div class="contact-row">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h2>Contact</h2>
                 </div>
 
+                <hr />
+
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+
+                    <div class="contact-text">
+                        <div class="label">Email</div>
+                        <a href="mailto:anton.nel.be@gmail.com">anton.nel.be@gmail.com</a>
+                    </div>
+                </div>
+                <hr />
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+
+                    <div class="contact-text">
+                        <div class="label">Telegram</div>
+                        <a href="https://t.me/antonnel">@antonnel</a>
+                    </div>
+                </div>
+                <hr />
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+
+                    <div class="contact-text">
+                        <div class="label">LinkedIn</div>
+                        <a href="https://linkedin.com/in/anton-nel">linkedin.com/in/anton-nel</a>
+                    </div>
+                </div>
+                <hr />
+                <div class="contact-item">
+                    <div class="icon">
+                        <i style="color:black" class="fa-brands fa-github"></i>
+                    </div>
+
+                    <div class="contact-text">
+                        <div class="label">GitHub</div>
+                        <a href="https://github.com/roman5">github.com/roman5</a>
+                    </div>
+                </div>
             </div>
 
         </div>
 
+        <!-- PRODUCT -->
+        <div class="card product">
+            <div class="product-image">
+                <img src="mirror.jpg">
+            </div>
+
+            <div>
+                <div class="contact-row">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <h2>Mirror Trading Manager</h2>
+                </div>
+                <h4 class="soft-title">Super-fast copy-trading software</h4>
+
+                <hr />
+                <p>Professional copy-trading solution built for speed and reliability and flexibility. Mirror Trading Manager allows you to copy trades between accounts and brokers in real time with advanced risk management and reporting.</p>
+
+                <div class="features">
+
+                    <!-- Ultra Fast -->
+                    <div class="feature product-item">
+                        <div class="icon icon-green">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div class="product-text">
+                            <div class="label">Ultra Fast</div>
+                            <div class="footer">Real-time trade execution</div>
+                        </div>
+                    </div>
+
+                    <!-- Reliable -->
+                    <div class="feature product-item">
+                        <div class="icon icon-blue">
+                            <i class="fa-solid fa-shield"></i>
+                        </div>
+                        <div class="product-text">
+                            <div class="label">Reliable</div>
+                            <div class="footer">Stable and secure architecture</div>
+                        </div>
+                    </div>
+
+                    <!-- Powerful -->
+                    <div class="feature product-item">
+                        <div class="icon icon-purple">
+                            <i class="fa-solid fa-chart-column"></i>
+                        </div>
+                        <div class="product-text">
+                            <div class="label">Powerful</div>
+                            <div class="footer">Advanced controls and reporting</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a href="https://www.antonnel.net/mirror" class="btn">Click here for more information</a>
+            </div>
+        </div>
     </div>
-	
-	<!-- CLIENT FEEDBACK / TESTIMONIALS SECTION -->
-    <div class="testimonials-wrapper" id="testimonials">
-        <h2 style="text-align:center; margin-bottom: 20px;">Client Feedback</h2>
-        <div class="testimonials">
-            <div class="testimonial">
-                <p>"Easy to use, constantly improved, excellent support, and unbeatable value. Highly recommended!"</p>
-                <strong>- Kevin G.</strong>
-            </div>
-            <div class="testimonial">
-                <p>"The best copy trading software I have used. Powerful, reliable, elegant UI, and amazing support!"</p>
-                <strong>- Mark E.</strong>
-            </div>
-			<div class="testimonial">
-                <p>"Simplifies copy trading with one application. Saves time and manages multiple accounts effortlessly."</p>
-                <strong>- Lisa Forex.</strong>
-            </div>
-			<div class="testimonial">
-                <p>"Excellent tool with very fast support. The free mode already shows outstanding quality."</p>
-                <strong>- Leonardo A.</strong>
-            </div>
-			<div class="testimonial">
-                <p>"A top-quality trade copier with great accuracy, flexibility, customization, and reliable performance."</p>
-                <strong>- Willand M.</strong>
-            </div>
-			<div class="testimonial">
-                <p>"Excellent software, fast support, professional service. Problems solved quickly. Highly recommended!"</p>
-                <strong>- Johnny</strong>
-            </div>
-            <div class="testimonial">
-                <p>"Easy setup and seamless synchronization. Best copy trader I've used."</p>
-                <strong>- Sarah L.</strong>
-            </div>
-            <div class="testimonial">
-                <p>"Incredible execution speed. Zero slippage across multiple accounts!"</p>
-                <strong>- Michael R.</strong>
-            </div>
-            <div class="testimonial">
-                <p>"The risk management and daily P/L limits saved my capital multiple times."</p>
-                <strong>- David K.</strong>
-            </div>
-        </div>
-    </div>
 
-    <!-- AFFILIATES -->
-    <div class="faq" id="affiliates">
-
-        <h2 style="text-align:center; margin-bottom:20px;">
-            Affiliates
-        </h2>
-
-        <div style="
-            background:var(--card);
-            border:1px solid var(--border);
-            border-radius:12px;
-            padding:40px 25px;
-            text-align:center;">
-
-            <p style="
-                color:var(--muted);
-                max-width:700px;
-                margin:0 auto 35px auto;
-            ">
-                Turn your referrals into ongoing revenue. Earn 7% commission for every Mirror license purchase and continue earning monthly recurring commissions as your clients stay subscribed.
-            </p>
-
-            <div style="
-                display:grid;
-                grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-                gap:15px;
-                max-width:700px;
-                margin:0 auto;
-            ">
-
-                <a class="btn"
-                   href="https://mirror.trackdesk.com/sign-up"
-                   target="_blank">
-                    Sign Up
-                </a>
-
-                <a class="btn"
-                   href="https://mirror.trackdesk.com/dashboard"
-                   target="_blank">
-                    Login Dashboard
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- FAQ -->
-    <div class="faq" id="faq">
-
-		<h2 style="text-align:center; margin-bottom:20px;">
-            FAQ
-        </h2>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            What is this system?
-            <div class="faq-answer">A high-performance trade copying and execution platform.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            Do I need VPS or VDS?
-            <div class="faq-answer">Recommended for lowest latency performance.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            What is the difference between VDS and VPS?
-            <div class="faq-answer">While VPS solutions are common, they share computing power with other users, which can lead to performance fluctuations. A VDS gives you dedicated computing power, ensuring consistent stability and predictable performance—making it the professional choice for serious traders.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            Which VPS is best?
-            <div class="faq-answer">I recommend FXVDS as a VDS provider: See https://www.fxvds.com They offer 30% off for the first 3 months with the code ANTONNEL30. Note: I do not receive any commission from FXVDS.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            Is it real-time?
-            <div class="faq-answer">Yes, near real-time depending on broker speed.</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            What are the OS minimum requirements?
-            <div class="faq-answer">
-                Windows Server 2016+ / Windows 10 / Windows 11
-            </div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            What are the minimum hardware requirements?
-            <div class="faq-answer">
-                4GB RAM+ and a dual-core CPU or better is required; a 4-core CPU is preferred over dual-core.
-            </div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            Where to find broker IP address?
-            <div class="faq-answer">
-                There is a button: "Auto Detect IP Address", see PDF guide for more info.
-            </div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            How do I configure each account to use a different IP address?
-            <div class="faq-answer">
-                Use proxy services (Standard and Pro versions only).
-                See the
-                <a href="https://mirror-trading-manager.b-cdn.net/Mirror%20Trading%20Manager%20Proxy%20Guide.pdf"
-                   target="_blank"
-                   style="color:var(--accent);">
-                    PDF guide
-                </a>
-                for more information.
-            </div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            Can it copy the target price and stop loss?
-            <div class="faq-answer">Yes</div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            How fast to complete 200 logins?
-            <div class="faq-answer">
-                Under 60 seconds (avg. ping was 175ms). One of the clients reported 30 seconds (his avg. ping was 70ms)
-            </div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            How fast to copy 200 trades from master to 8 followers?
-            <div class="faq-answer">
-                Under 50 seconds (depending on ping and broker server execution speed).
-            </div>
-        </div>
-
-        <div class="faq-item" onclick="toggleFAQ(this)">
-            Is REST API included?
-            <div class="faq-answer">Yes. Only in Pro plan.</div>
-        </div>
-
-    </div>
+    <footer>
+        © 2021-2026 Anton Nel. All rights reserved.
+    </footer>
 
     <script>
-
-        const plans = {
-            monthly: {
-                basic: { price: 29, url: "https://buy.stripe.com/bIYg3203g9GsfgQ3cA" },
-                standard: { price: 79, url: "https://buy.stripe.com/cN2cQQ03g8Co9Ww4gI" },
-                pro: { price: 179, url: "https://buy.stripe.com/00geYYg2e9Gs1q0dR5" }
-            },
-
-            "6m": {
-                basic: { price: 145, url: "https://buy.stripe.com/28o5oog2e2e0gkU00n" },
-                standard: { price: 395, url: "https://buy.stripe.com/28o3gg7vI4m86KkcNg" },
-                pro: { price: 895, url: "https://buy.stripe.com/8wM0447vI6ugfgQ7sG" }
-            },
-
-            yearly: {
-                basic: { price: 290, url: "https://buy.stripe.com/4gwbMM03gdWI7OobJ3" },
-                standard: { price: 790, url: "https://buy.stripe.com/3cs6ss7vIg4Q4CcaF7" },
-                pro: { price: 1799, url: "https://buy.stripe.com/5kA04417kg4QgkUeV7" }
-            },
-
-            lifetime: {
-                basic: { price: 799, url: "https://buy.stripe.com/14kdUU2bog4Q6KkfZi" },
-                standard: { price: 1999, url: "https://buy.stripe.com/dR604403gdWI8Ss28x" },
-                pro: { price: 4999, url: "https://buy.stripe.com/aEU6sseYadWI7OofZa" }
-            }
-        };
-
-        function openCheckout(type) {
-            window.open(plans[currentPlan][type].url, "_blank");
-        }
-
-        /* PRICE SWITCH */
-        let currentPlan = "monthly";
-
-        function setPlan(p, btn) {
-
-            currentPlan = p;
-
-            const prices = {
-                monthly: { basic: 29, standard: 79, pro: 179 },
-                "6m": { basic: 145, standard: 395, pro: 895 },
-                yearly: { basic: 290, standard: 790, pro: 1799 },
-                lifetime: { basic: 799, standard: 1999, pro: 4999 }
-            };
-
-            basicPrice.innerText = "€" + prices[p].basic;
-            standardPrice.innerText = "€" + prices[p].standard;
-            proPrice.innerText = "€" + prices[p].pro;
-
-            document.querySelectorAll(".switcher button")
-                .forEach(b => b.classList.remove("active"));
-
-            if (btn) btn.classList.add("active");
-        }
-
-        /* TOGGLE ADVANCED */
-        function toggleAdvanced() {
-            document.getElementById("advancedFeatures").classList.toggle("hidden");
-        }
-
-        /* THEME */
-        function applyTheme(theme) {
-
-            if (theme === "light") {
-                document.body.classList.add("light");
-                document.getElementById("thumb").innerText = "☀️";
-            } else {
-                document.body.classList.remove("light");
-                document.getElementById("thumb").innerText = "🌙";
-            }
-        }
-
-        function toggleTheme() {
-
-            const isLight = document.body.classList.toggle("light");
-
-            const theme = isLight ? "light" : "dark";
-
-            localStorage.setItem("theme", theme);
-
-            applyTheme(theme);
-        }
-
-        /* FAQ */
-        function toggleFAQ(el) {
-            const a = el.querySelector(".faq-answer");
-            a.style.display = a.style.display === "block" ? "none" : "block";
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-
-            /* LOAD SAVED THEME */
-            const savedTheme = localStorage.getItem("theme") || "dark";
-            applyTheme(savedTheme);
-
-            const cards = document.querySelectorAll(".pricing .card");
-
-            const basicBtn = cards[1].querySelector("button");
-            const standardBtn = cards[2].querySelector("button");
-            const proBtn = cards[3].querySelector("button");
-
-            basicBtn.onclick = () => openCheckout("basic");
-            standardBtn.onclick = () => openCheckout("standard");
-            proBtn.onclick = () => openCheckout("pro");
-        });
-
+        lucide.createIcons();
     </script>
 </body>
 </html>

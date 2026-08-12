@@ -2,24 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-    <!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-J48FN2PMY3"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	  gtag('config', 'G-J48FN2PMY3');
-	</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J48FN2PMY3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-J48FN2PMY3');
+    </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-    <title>Anton Nel - Programmer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anton Nel - Senior Software Engineer & Data Engineer</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -83,7 +82,6 @@
             text-align: left;
         }
 
-
         .hero-inner {
             max-width: 800px;
         }
@@ -113,16 +111,16 @@
             padding: 0;
         }
 
-            .hero .subtitle::before,
-            .hero .subtitle::after {
-                content: "";
-                display: inline-block;
-                width: 40px;
-                height: 1px;
-                background: currentColor;
-                vertical-align: middle;
-                margin: 0 10px;
-            }
+        .hero .subtitle::before,
+        .hero .subtitle::after {
+            content: "";
+            display: inline-block;
+            width: 40px;
+            height: 1px;
+            background: currentColor;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
 
         /* SKILLS BADGES */
         .badges {
@@ -130,11 +128,10 @@
             display: flex;
             justify-content: center;
             gap: 12px;
-            flex-wrap: nowrap; /* force single row */
+            flex-wrap: nowrap;
         }
 
         .badge {
-            
             padding: 6px 14px;
             border-radius: 8px;
             font-size: 13px;
@@ -144,9 +141,9 @@
             gap: 6px;
         }
 
-            .badge i {
-                font-size: 32px;
-            }
+        .badge i {
+            font-size: 32px;
+        }
 
         .tech-stack {
             display: flex;
@@ -162,8 +159,6 @@
             gap: 4px;
             padding: 8px 14px;
             border-radius: 12px;
-            /*background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(8px);*/
             color: #fff;
             font-size: 13px;
             font-weight: 500;
@@ -172,21 +167,19 @@
             cursor: default;
         }
 
-            /* icon size */
-            .tech-item i {
-                font-size: 24px;
-            }
+        .tech-item i {
+            font-size: 24px;
+        }
 
-            /* hover effect */
-            .tech-item:hover {
-                transform: translateY(-3px);
-                background: rgba(255, 255, 255, 0.22);
-                box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            }
+        .tech-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
 
-                .tech-item:hover i {
-                    filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
-                }
+        .tech-item:hover i {
+            filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
+        }
 
         /* CONTAINER */
         .container {
@@ -210,15 +203,36 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
-            /* BIO */
-            .card h2 {
-                margin-top: 0;
-            }
+        /* BIO */
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .card p {
+            line-height: 1.65;
+        }
+
+        .bio-section-title {
+            color: #0C54C6;
+            font-weight: 700;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .bio-list {
+            margin: 8px 0 18px 0;
+            padding-left: 20px;
+            line-height: 1.7;
+        }
+
+        .bio-list li {
+            margin-bottom: 3px;
+        }
 
         /* CONTACT */
         .contact-item {
             display: flex;
-            align-items: flex-start; /* key: aligns icon with top of text block */
+            align-items: flex-start;
             gap: 10px;
         }
 
@@ -227,25 +241,25 @@
             flex-direction: column;
         }
 
-            .contact-text .label {
-                font-weight: 600;
-                line-height: 1.2;
-            }
+        .contact-text .label {
+            font-weight: 600;
+            line-height: 1.2;
+        }
 
-            .contact-text .footer {
-                color: #0C54C6;
-                text-decoration: none;
-                font-size: 11px;
-                line-height: 1.2;
-                opacity: 0.95;
-            }
+        .contact-text .footer {
+            color: #0C54C6;
+            text-decoration: none;
+            font-size: 11px;
+            line-height: 1.2;
+            opacity: 0.95;
+        }
 
-            .contact-text a {
-                color: #0C54C6;
-                text-decoration: none;
-                font-size: 14px;
-                line-height: 1.2;
-            }
+        .contact-text a {
+            color: #0C54C6;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 1.2;
+        }
 
         .icon {
             width: 36px;
@@ -257,20 +271,19 @@
             justify-content: center;
             color: #0C54C6;
         }
-            /* FontAwesome */
-            .icon i {
-                font-size: 22px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
 
-            /* Lucide SVG */
-            .icon svg {
-                width: 30px;
-                height: 30px;
-                display: block;
-            }
+        .icon i {
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon svg {
+            width: 30px;
+            height: 30px;
+            display: block;
+        }
 
         .contact a {
             color: #0C54C6;
@@ -288,21 +301,21 @@
             gap: 20px;
         }
 
-            .product img {
-                width: 100%;
-                border-radius: 12px;
-            }
+        .product img {
+            width: 100%;
+            border-radius: 12px;
+        }
 
         .product-image {
             display: flex;
-            align-items: center; /* vertical center */
-            justify-content: center; /* horizontal center */
+            align-items: center;
+            justify-content: center;
         }
 
-            .product-image img {
-                width: 50%; /* adjust as you like */
-                border-radius: 12px;
-            }
+        .product-image img {
+            width: 50%;
+            border-radius: 12px;
+        }
 
         .product-item {
             display: flex;
@@ -312,28 +325,27 @@
             gap: 6px;
         }
 
-            .product-item .icon {
-                margin-bottom: 2px;
-            }
+        .product-item .icon {
+            margin-bottom: 2px;
+        }
 
         .product-text {
             display: flex;
             flex-direction: column;
         }
 
-            .product-text .label {
-                font-weight: 600;
-                line-height: 1.2;
-            }
+        .product-text .label {
+            font-weight: 600;
+            line-height: 1.2;
+        }
 
-            .product-text .footer {
-                color: #0C54C6;
-                text-decoration: none;
-                font-size: 11px;
-                line-height: 1.2;
-                opacity: 0.95;
-            }
-
+        .product-text .footer {
+            color: #0C54C6;
+            text-decoration: none;
+            font-size: 11px;
+            line-height: 1.2;
+            opacity: 0.95;
+        }
 
         .features {
             display: flex;
@@ -378,12 +390,12 @@
             gap: 10px;
         }
 
-            .contact-row h2 {
-                margin: 0;
-                line-height: 1;
-                display: flex;
-                align-items: center;
-            }
+        .contact-row h2 {
+            margin: 0;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+        }
 
         .icon-circle {
             background: #0C54C6;
@@ -396,20 +408,19 @@
             flex: 0 0 42px;
             color: white;
         }
-            /* FontAwesome */
-            .icon-circle i {
-                font-size: 24px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
 
-            /* Lucide SVG */
-            .icon-circle svg {
-                width: 32px;
-                height: 32px;
-                display: block;
-            }
+        .icon-circle i {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-circle svg {
+            width: 32px;
+            height: 32px;
+            display: block;
+        }
 
         /* FOOTER */
         footer {
@@ -452,34 +463,34 @@
 
             .hero h1 {
                 font-size: 32px;
-                margin: 0px;
+                margin: 0;
                 font-weight: 700;
                 margin-top: -20px;
-                margin-bottom: 0px;
+                margin-bottom: 0;
             }
 
             .hero .subtitle {
-                font-size: 22px;
+                font-size: 20px;
                 color: #9cc7ff;
-                margin-bottom: 0px;
+                margin-bottom: 0;
                 position: relative;
                 display: block;
                 padding: 0;
             }
 
-                .hero .subtitle::before,
-                .hero .subtitle::after {
-                    content: "";
-                    display: inline-block;
-                    width: 40px;
-                    height: 1px;
-                    background: currentColor;
-                    vertical-align: middle;
-                    margin: 0 10px;
-                }
+            .hero .subtitle::before,
+            .hero .subtitle::after {
+                content: "";
+                display: inline-block;
+                width: 25px;
+                height: 1px;
+                background: currentColor;
+                vertical-align: middle;
+                margin: 0 7px;
+            }
 
             .avatar {
-                margin-bottom: 0px;
+                margin-bottom: 0;
             }
 
             .hero-row {
@@ -499,8 +510,16 @@
             .btn {
                 display: block;
                 width: fit-content;
-                margin: 15px auto 0 auto; /* 👈 this centers it */
+                margin: 15px auto 0 auto;
                 text-align: center;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .bio-list {
+                text-align: left;
             }
         }
     </style>
@@ -516,7 +535,7 @@
 
             <div class="hero-text">
                 <h1>Anton Nel</h1>
-                <div class="subtitle">Programmer</div>
+                <div class="subtitle">Senior Software Engineer &amp; Data Engineer</div>
 
                 <div class="badges">
                     <div class="badges">
@@ -529,7 +548,7 @@
                             </div>
 
                             <div class="tech-item" title=".NET">
-                                <i style="color: #1551B9 " class="devicon-windows11-original"></i>
+                                <i style="color: #1551B9" class="devicon-windows11-original"></i>
                                 <span>.NET</span>
                             </div>
 
@@ -557,26 +576,80 @@
 
             <!-- BIO -->
             <div class="card">
+
                 <h2>👋 Hello, I’m Anton Nel</h2>
 
                 <p>
-                    I’m a software developer based in Belgium, originally from South Africa. My passion for technology began on a Commodore 64 in 1983, and I bring over two decades of hands-on experience building reliable, scalable software solutions, specializing in .NET since 2001.
+                    I’m a Senior Software Engineer and Data Engineer based in Belgium, originally from South Africa.
+                    My passion for technology started with a Commodore 64 in 1983, and I have been developing
+                    professional software for more than two decades, specialising in C# and .NET since 2001.
                 </p>
 
                 <p>
-                    As a Microsoft Certified Professional (MCP) with certifications in Microsoft technologies, I combine strong technical expertise with a practical, business-focused approach. I help companies turn complex ideas into efficient, maintainable systems tailored to their needs - whether building from scratch or improving existing platforms.
+                    I design and develop custom software solutions, automated trading systems, APIs, integrations,
+                    data-processing solutions and business applications for private and corporate clients.
+                    My focus is on building reliable, scalable and maintainable systems that solve real-world
+                    business problems.
+                </p>
+
+                <h4 class="bio-section-title">Software Engineering</h4>
+
+                <ul class="bio-list">
+                    <li>C# / .NET / MQL4 / MQL5 software development</li>
+                    <li>Backend, frontend and desktop application development</li>
+                    <li>Console and WPF applications</li>
+                    <li>Web applications and REST APIs</li>
+                    <li>Third-party and financial API integrations</li>
+                    <li>System integration, automation and monitoring</li>
+                    <li>Custom software development and modernisation of existing systems</li>
+                </ul>
+
+                <h4 class="bio-section-title">Data Engineering &amp; Databases</h4>
+
+                <ul class="bio-list">
+                    <li>Microsoft SQL Server and Microsoft Access database design and management</li>
+                    <li>Data processing and transformation</li>
+                    <li>JSON processing and API-based data integration</li>
+                    <li>Data pipelines and automated data-processing solutions</li>
+                    <li>Data import, monitoring and reporting systems</li>
+                    <li>Integration between applications, databases and external services</li>
+                </ul>
+
+                <h4 class="bio-section-title">Financial &amp; Trading Software</h4>
+
+                <p>
+                    I have extensive experience developing software for financial and trading environments,
+                    including cryptocurrency, forex and accounting systems - areas where accuracy, performance,
+                    reliability and automation are critical.
+                </p>
+
+                <ul class="bio-list">
+                    <li>Automated trading software and algorithmic trading systems</li>
+                    <li>Trading applications that execute automated buy and sell strategies based on defined business rules</li>
+                    <li>Trading APIs and exchange integrations</li>
+                    <li>Financial data processing and integration</li>
+                    <li>FIX Protocol</li>
+                </ul>
+
+                <p>
+                    As a Microsoft Certified Professional (MCP) with extensive experience across Microsoft
+                    technologies, I combine strong technical expertise with a practical, business-focused approach.
+                    I can work on a project from the ground up or help improve, integrate and modernise an existing system.
                 </p>
 
                 <p>
-                    I have solid experience in financial domains, including cryptocurrency, forex, and accounting systems - environments where accuracy, performance, and reliability are essential.
+                    I enjoy solving complex technical problems and turning ideas, business requirements and data
+                    into practical, reliable software solutions.
                 </p>
 
                 <p>
-                    If you’re looking for a developer who understands both technology and business, I’d be glad to help bring your project to life.
+                    If you’re looking for a senior developer who understands both technology and business,
+                    I’d be glad to help bring your project to life.
                 </p>
+
             </div>
 
-            <!-- CONTACT -->
+            <!-- CONTACT - UNCHANGED -->
             <div class="card contact">
                 <div class="contact-row">
                     <div class="icon-circle">
@@ -597,7 +670,9 @@
                         <a href="mailto:anton.nel.be@gmail.com">anton.nel.be@gmail.com</a>
                     </div>
                 </div>
+
                 <hr />
+
                 <div class="contact-item">
                     <div class="icon">
                         <i class="fa-solid fa-paper-plane"></i>
@@ -608,7 +683,9 @@
                         <a href="https://t.me/antonnel">@antonnel</a>
                     </div>
                 </div>
+
                 <hr />
+
                 <div class="contact-item">
                     <div class="icon">
                         <i class="fa-brands fa-linkedin-in"></i>
@@ -619,7 +696,9 @@
                         <a href="https://linkedin.com/in/anton-nel">linkedin.com/in/anton-nel</a>
                     </div>
                 </div>
+
                 <hr />
+
                 <div class="contact-item">
                     <div class="icon">
                         <i style="color:black" class="fa-brands fa-github"></i>
@@ -634,7 +713,7 @@
 
         </div>
 
-        <!-- PRODUCT -->
+        <!-- PRODUCT - UNCHANGED -->
         <div class="card product">
             <div class="product-image">
                 <img src="mirror.jpg">
@@ -647,10 +726,16 @@
                     </div>
                     <h2>Mirror Trading Manager</h2>
                 </div>
+
                 <h4 class="soft-title">Super-fast copy-trading software</h4>
 
                 <hr />
-                <p>Professional copy-trading solution built for speed and reliability and flexibility. Mirror Trading Manager allows you to copy trades between accounts and brokers in real time with advanced risk management and reporting.</p>
+
+                <p>
+                    Professional copy-trading solution built for speed and reliability and flexibility.
+                    Mirror Trading Manager allows you to copy trades between accounts and brokers in real time
+                    with advanced risk management and reporting.
+                </p>
 
                 <div class="features">
 
@@ -659,6 +744,7 @@
                         <div class="icon icon-green">
                             <i class="fa-solid fa-bolt"></i>
                         </div>
+
                         <div class="product-text">
                             <div class="label">Ultra Fast</div>
                             <div class="footer">Real-time trade execution</div>
@@ -670,6 +756,7 @@
                         <div class="icon icon-blue">
                             <i class="fa-solid fa-shield"></i>
                         </div>
+
                         <div class="product-text">
                             <div class="label">Reliable</div>
                             <div class="footer">Stable and secure architecture</div>
@@ -681,6 +768,7 @@
                         <div class="icon icon-purple">
                             <i class="fa-solid fa-chart-column"></i>
                         </div>
+
                         <div class="product-text">
                             <div class="label">Powerful</div>
                             <div class="footer">Advanced controls and reporting</div>
@@ -689,7 +777,10 @@
 
                 </div>
 
-                <a href="https://www.antonnel.net/mirror" class="btn">Click here for more information</a>
+                <a href="https://www.antonnel.net/mirror" class="btn">
+                    Click here for more information
+                </a>
+
             </div>
         </div>
     </div>
@@ -699,9 +790,9 @@
         text-align:center;
         padding:25px 20px;
         margin-top:40px;
-        color:var(--muted);
+        color:#777;
         font-size:13px;
-        border-top:1px solid var(--border);
+        border-top:1px solid #ccc;
     ">
         © 2021-2026 ANTON NEL. All rights reserved.
     </footer>
@@ -709,5 +800,6 @@
     <script>
         lucide.createIcons();
     </script>
+
 </body>
 </html>

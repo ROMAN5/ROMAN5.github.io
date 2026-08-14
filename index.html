@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+	
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J48FN2PMY3"></script>
     <script>
@@ -313,9 +314,12 @@
         }
 
         .product-image img {
-            width: 50%;
-            border-radius: 12px;
-        }
+			width: 50%;
+			max-width: 220px;
+			max-height: 220px;
+			object-fit: contain;
+			border-radius: 12px;
+		}
 
         .product-item {
             display: flex;
@@ -713,7 +717,8 @@
 
         </div>
 
-        <!-- PRODUCT - UNCHANGED -->
+		
+        <!-- MIRROR TRADING MANAGER -->
         <div class="card product">
             <div class="product-image">
                 <img src="mirror.jpg">
@@ -739,7 +744,6 @@
 
                 <div class="features">
 
-                    <!-- Ultra Fast -->
                     <div class="feature product-item">
                         <div class="icon icon-green">
                             <i class="fa-solid fa-bolt"></i>
@@ -751,7 +755,6 @@
                         </div>
                     </div>
 
-                    <!-- Reliable -->
                     <div class="feature product-item">
                         <div class="icon icon-blue">
                             <i class="fa-solid fa-shield"></i>
@@ -763,7 +766,6 @@
                         </div>
                     </div>
 
-                    <!-- Powerful -->
                     <div class="feature product-item">
                         <div class="icon icon-purple">
                             <i class="fa-solid fa-chart-column"></i>
@@ -783,6 +785,81 @@
 
             </div>
         </div>
+
+
+        <!-- ARMPIRA -->
+        <div class="card product">
+            <div class="product-image">
+                <img src="armpira-logo.png" alt="Armpira">
+            </div>
+
+            <div>
+                <div class="contact-row">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h2>Armpira</h2>
+                </div>
+
+                <h4 class="soft-title">
+                    Mirror Trading Management and Reporting Portal
+                </h4>
+
+                <hr />
+
+                <p>
+                    A centralised platform for monitoring your Mirror Trading Manager
+                    instances, trading accounts, connections and performance.
+                </p>
+
+                <div class="features">
+
+                    <div class="feature product-item">
+                        <div class="icon icon-green">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+
+                        <div class="product-text">
+                            <div class="label">Monitoring</div>
+                            <div class="footer">Monitor your trading instances</div>
+                        </div>
+                    </div>
+
+                    <div class="feature product-item">
+                        <div class="icon icon-blue">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+
+                        <div class="product-text">
+                            <div class="label">Connections</div>
+                            <div class="footer">Track accounts and connections</div>
+                        </div>
+                    </div>
+
+                    <div class="feature product-item">
+                        <div class="icon icon-purple">
+                            <i class="fa-solid fa-chart-column"></i>
+                        </div>
+
+                        <div class="product-text">
+                            <div class="label">Reporting</div>
+                            <div class="footer">Centralised trading performance</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a href="https://www.armpira.com"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn">
+                    Click here for more information
+                </a>
+
+            </div>
+        </div>
+
+
     </div>
 
     <!-- FOOTER -->
